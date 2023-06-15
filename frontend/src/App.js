@@ -1,14 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-
-import './App.css';
-
+import LoadingCrane from './Components/LoadingCrane.js'
 
   const Main = () => {
 
     return (
       <div className="Main">
-        <h1 className="title">title</h1>
+        <h1 className="title">Work In Progress</h1>
+        <LoadingCrane />
       </div>
     )
 
