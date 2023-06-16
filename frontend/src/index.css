@@ -14,10 +14,20 @@ footer {
 
 .Main {
   text-align: center;
+  justify-content: center;
 }
 
 h1 {
   color: rgb(255,255,255);
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h3 {
+  margin-left:25px;
+}
+
+h4 {
+  margin-left:25px;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -137,6 +147,118 @@ h1 {
   animation-iteration-count: infinite;
   visibility: hidden;
   margin-left: 1px;
+}
+
+.header {
+  display: flex;
+  background-color: white;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 2%;
+}
+
+.logo {
+  height: 100px;
+  width: auto;
+  margin: 10px;
+  margin-left: 50px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  margin-right: 50px;
+}
+.offLinks {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: -20px;
+}
+
+.emailLink {
+  height: 15px;
+  width: auto;
+  color: black;
+}
+
+.localLinks {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: -10px;
+  white-space: nowrap
+}
+
+.gallery {
+  margin:auto;
+  width: 60%;
+  max-width: 60%;
+  height: auto;
+  background-color: red;
+  aspect-ratio: 245/130;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.galleryControl {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(255,255,255,0.2);;
+}
+
+.message {
+  color: white;
+  transition: opacity 0.5s;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.galleryBackButton {
+  border: none;
+  background-color: transparent;
+  transition-duration: 0.4s;
+  font-size: 36px;
+  color: white;
+  opacity: 0.5;
+  margin-left: 3%;
+}
+
+.galleryBackButton:hover {
+  font-size: 48px;
+  opacity: 1;
+  margin-right: -7px;
+}
+
+.galleryForwardButton {
+  border: none;
+  background-color: transparent;
+  transition-duration: 0.4s;
+  font-size: 36px;
+  color: white;
+  opacity: 0.5;
+  margin-right: 3%;
+}
+
+.galleryForwardButton:hover {
+  font-size: 48px;
+  opacity: 1;
+  margin-left: -7px;
+}
+
+.messageFade {
+  animation: messageFade 1.0s ease-in-out, 1;
+}
+
+@keyframes messageFade {
+  0%   {opacity: 1}
+  50%  {opacity: 0;}
+  100%  {opacity: 1;}
 }
 
 @keyframes dotLoading1 {

@@ -1,17 +1,27 @@
-// import React, {useState} from 'react'
-// import house1 from './../images/house1.jpeg'
-// import house2 from './../images/house2.jpeg'
+import { useState } from 'react';
 
-// const Gallery = () => {
+const Gallery = () => {
 
-//     const [index, setIndex] = useState(0)
-//     const [picList, setPicList] = useState([house1, house2])
+    const [index, setIndex] = useState(1)
+    const [messageList, setMessageList] = useState(["Bespoke Building Solutions", "Other Things", "A third Thing"])
 
-//     return (
-//         <div className='Gallery'>
-//             <img className = 'GalleryPic' src={picList[index]}/>
-//         </div>
-//     )
-// }
+    const buttonPress = () => {
+        const message = document.querySelector(".message");
+        message.classList.add("messageFade");
+        setTimeout(() => setIndex(index+ 1),500)
+        setTimeout(() =>  message.classList.remove("messageFade"),1000)
+      };
 
-// export default Gallery
+
+    return (
+        <div className="gallery">
+            <div className="galleryControl">
+                <button className='galleryBackButton' onClick={buttonPress}>{"<"}</button>
+                <h1 className="message">{messageList[index%messageList.length]}</h1>
+                <button className='galleryForwardButton' onClick={buttonPress}>{">"}</button>
+            </div>
+        </div>
+    )
+}
+
+export default Gallery
