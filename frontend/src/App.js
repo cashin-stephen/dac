@@ -1,12 +1,15 @@
 import React from 'react';
 import LoadingCrane from './Components/LoadingCrane.js'
+import Footer from './Components/Footer.js'
+import Title from './Components/Title.js'
 
   const Main = () => {
 
     return (
       <div className="Main">
-        <h1 className="title">Work In Progress</h1>
+        <Title />
         <LoadingCrane />
+        <Footer />
       </div>
     )
 

@@ -2,14 +2,31 @@ body {
   background-color: rgb(40, 40, 40);
 }
 
+footer {
+  position: fixed;
+  color: gray;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px;
+  text-align: right;
+}
+
 .Main {
   text-align: center;
 }
 
-.title {
-  margin-top: 10%;
+h1 {
   color: rgb(255,255,255);
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.titleBox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top:10%;
 }
 
 .lowerCrane {
@@ -94,6 +111,49 @@ body {
   flex-direction: column;
   margin-left: 100px;
 }
+
+.dot1 {
+  animation-name: dotLoading1;
+  animation-duration: 4s;
+  animation-timing-function: steps(1);
+  animation-iteration-count: infinite;
+  visibility: hidden;
+  margin-left: 1px;
+}
+
+.dot2 {
+  animation-name: dotLoading2;
+  animation-duration: 4s;
+  animation-timing-function: steps(1);
+  animation-iteration-count: infinite;
+  visibility: hidden;
+  margin-left: 1px;
+}
+
+.dot3 {
+  animation-name: dotLoading3;
+  animation-duration: 4s;
+  animation-timing-function: steps(1);
+  animation-iteration-count: infinite;
+  visibility: hidden;
+  margin-left: 1px;
+}
+
+@keyframes dotLoading1 {
+  0%   {visibility: hidden;}
+  25%  {visibility: visible;}
+}
+
+@keyframes dotLoading2 {
+  0%   {visibility: hidden;}
+  50%  {visibility: visible;}
+}
+
+@keyframes dotLoading3 {
+  0%   {visibility: hidden;}
+  75%  {visibility: visible;}
+}
+
 
 @keyframes craneRotation {
   0%   {transform: rotate3d(0,1,0,0deg);}
