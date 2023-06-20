@@ -2,7 +2,7 @@ const Footer = () => {
 
     const year = new Date().getFullYear();
 
-    return <footer>{`Stephen Cashin ${year}`}</footer>
+    return <footer>{`DAC ${year}`}</footer>
 
 }
 
