@@ -161,14 +161,15 @@ h4 {
   height: 100px;
   width: auto;
   margin: 10px;
-  margin-left: 50px;
+  margin-left: 3%;
+  margin-right:-150px
 }
 
 .info {
   display: flex;
   flex-direction: column;
   align-items: end;
-  margin-right: 50px;
+  margin-right: 3%;
 }
 .offLinks {
   display:flex;
@@ -200,8 +201,9 @@ h4 {
   background-size: 500%, 100%;
   aspect-ratio: 245/130;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .galleryTrans {
@@ -259,6 +261,34 @@ h4 {
 
 .messageFade {
   animation: messageFade 1.0s ease-in-out, 1;
+}
+
+.dot {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: rgb(255,255,255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.activeDot {
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background-color: rgb(93, 91, 91);
+  display: flex;
+  transition: 1s ease-in;
+}
+
+.radio {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 5%;
+  margin-top: -10%;
+  justify-content: space-between;
+  width:40%
 }
 
 @keyframes colourChange{

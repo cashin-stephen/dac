@@ -1,57 +1,71 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef} from 'react';
+import RadioBrace from './Radio';
 
 const Gallery = () => {
 
-    const [messageindex, setMessageIndex] = useState(0)
+    const [messageIndex, setMessageIndex] = useState(0)
     const [imgIndex, setImgIndex] = useState(0);
-    const [messageList] = useState(["Bespoke Building Solutions", "Other Things", "A third Thing"])
+    const [messageList] = useState(["Bespoke Building Solutions", "Other Things", "A third Thing", "Four", "Five"])
+    const [transition, setTransition] = useState("1s ease-out");
+    const btnTimer = useRef(null);
 
     const leftButtonPress = () => {
         const message = document.querySelector(".message");
+        const dot = document.querySelector(".activeDot");
         message.classList.remove("messageFade");
-        requestAnimationFrame((time) => {
-                setImgIndex(imgIndex- 1);
-                message.classList.add("messageFade");
-                setMessageIndex(messageindex+ 1)
-          });
-
+        dot.classList.remove("messageFade");
+        requestAnimationFrame(() => {
+            setImgIndex(imgIndex- 1);
+            message.classList.add("messageFade");
+            dot.classList.add("messageFade");
+        });
     }
 
     const rightButtonPress = () => {
         const message = document.querySelector(".message");
+        const dot = document.querySelector(".activeDot");
         message.classList.remove("messageFade");
-            requestAnimationFrame((time) => {
-                setImgIndex(imgIndex+1);
-                message.classList.add("messageFade");
-                setMessageIndex(messageindex+ 1)
-          });
+        dot.classList.remove("messageFade");
+        requestAnimationFrame(() => {
+            setImgIndex(imgIndex+1);
+            message.classList.add("messageFade");
+            dot.classList.add("messageFade");
+        });
     }
 
     const backgroundCorrection = () => {
-        if(imgIndex%5 === 0 && imgIndex!==0) {
-            const gallery = document.querySelector(".gallery");
-            gallery.classList.remove("galleryTrans");
-            requestAnimationFrame((time) => {
-                setImgIndex(0);
-                requestAnimationFrame((time) => {
-                    gallery.classList.add("galleryTrans");
-                });
+        setTransition("none");
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                setTransition("1s ease-out");
             });
-        }
+        });
     }
 
     useEffect(() => {
-        setTimeout(() => setMessageIndex(imgIndex),500);
-        //setTimeout(() => backgroundCorrection(),3000);
-      }, [imgIndex]);
+        clearTimeout(btnTimer.current);
+        btnTimer.current = window.setTimeout(backgroundCorrection,5000);
+        setTimeout(() => setMessageIndex(imgIndex%messageList.length),500);
+        imgIndex%messageList.length === 0 ?
+            setTimeout(() => setMessageIndex(0),500) :
+                imgIndex > 0 ?
+                    setTimeout(() => setMessageIndex(imgIndex%messageList.length),500) :
+                    setTimeout(() => setMessageIndex(((messageList.length)-(Math.abs(imgIndex))%messageList.length)),500);
+    }, [imgIndex]);
+
+    useEffect(() => {
+        setImgIndex(imgIndex%5);
+    }, [transition]);
 
     return (
-        <div className="gallery galleryTrans" style={{backgroundPosition: imgIndex*25+'%'}}>
+        <div className="gallery" style={{backgroundPosition: imgIndex*25+'%', transition: transition}}>
+            <div />
             <div className="galleryControl">
                 <button className='galleryBackButton' onClick={leftButtonPress}>{"<"}</button>
-                <h1 className="message">{messageList[messageindex%messageList.length]}</h1>
+                <h1 className="message">{messageIndex%messageList.length === 0 ? messageList[0] : messageIndex > 0 ? messageList[messageIndex%messageList.length] : messageList[(messageList.length)-(Math.abs(messageIndex))%messageList.length]}</h1>
                 <button className='galleryForwardButton' onClick={rightButtonPress}>{">"}</button>
             </div>
+            <RadioBrace index={messageIndex} num={messageList.length}/>
         </div>
     )
 }
