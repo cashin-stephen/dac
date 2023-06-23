@@ -1,10 +1,8 @@
 import React from 'react';
-import LoadingCrane from './Components/LoadingCrane.js'
-import Footer from './Components/Footer.js'
-import Title from './Components/Title.js'
 import Header from './Components/Header.js'
 import Gallery from './Components/Gallery.js'
 import About from './Components/About.js'
+import CardBrace from './Components/CardBrace.js'
 
   const Main = () => {
 
@@ -13,6 +11,7 @@ import About from './Components/About.js'
         <Header />
         <Gallery />
         <About />
+        <CardBrace />
       </div>
     )
 

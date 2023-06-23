@@ -326,6 +326,47 @@ h4 {
   width: 110%;
 }
 
+.cardThing {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex: 1 0 10px;
+}
+
+.cardBrace {
+  width: 75%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 2%;
+  gap: 9%;
+}
+
+.cardText {
+  font-size: large;
+}
+
+.cardImg {
+  height: 100px;
+  width: auto;
+}
+
+.linkArrow {
+  background-color: transparent;
+  transition-duration: 0.4s;
+  font-size: 28px;
+  color: rgb(80,80,80);
+}
+
+.linkArrow:hover {
+  background-color: #888888;
+}
+
+.linkText {
+    white-space: nowrap
+}
+
 @keyframes colourChange{
   0% {background: red;}
   50% {background: linear-gradient(90deg, red 50%, blue 50%);}
