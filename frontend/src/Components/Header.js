@@ -13,7 +13,6 @@ const Header = () => {
                 <h3 >086 2603225</h3>
                 <div className="offLinks">
                     <h3>F</h3>
-                    <img className = "emailLink" src={box} alt="DAC & Co. ltd Building Contractors"/>
                 </div>
                 <div className="localLinks">
                     <h4>About Us</h4>

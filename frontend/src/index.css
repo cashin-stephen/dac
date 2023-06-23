@@ -1,5 +1,7 @@
 body {
-  background-color: rgb(40, 40, 40);
+  background-color: #f5f5ff;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 footer {
@@ -18,7 +20,6 @@ footer {
 }
 
 h1 {
-  color: rgb(255,255,255);
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -150,19 +151,24 @@ h4 {
 }
 
 .header {
+  width: 101%;
   display: flex;
-  background-color: white;
+  background-color: #f5f5ff;
   justify-content: space-between;
   align-items: end;
-  margin-bottom: 2%;
+  position: fixed;
+  right:0;
+  left:0;
+  top: 0;
+  box-shadow: -3px 3px 3px #888888;
 }
 
 .logo {
-  height: 100px;
+  height: 90px;
   width: auto;
   margin: 10px;
   margin-left: 3%;
-  margin-right:-150px
+  margin-right:-150px;
 }
 
 .info {
@@ -175,7 +181,7 @@ h4 {
   display:flex;
   flex-direction: row;
   justify-content: space-evenly;
-  margin-top: -20px;
+  margin-top: -30px;
 }
 
 .emailLink {
@@ -188,22 +194,24 @@ h4 {
   display:flex;
   flex-direction: row;
   justify-content: space-evenly;
-  margin-top: -10px;
+  margin-top: -30px;
   white-space: nowrap
 }
 
 .gallery {
   margin:auto;
-  width: 60%;
-  max-width: 60%;
+  width: 101.2%;
   height: auto;
-  background: linear-gradient(to right, red 0% 20%, orange 20% 40%, yellow 40% 60%, blue 60% 80%, purple 80% 100%);
+  background: linear-gradient(to right, lightblue 0% 20%, orange 20% 40%, yellow 40% 60%, blue 60% 80%, purple 80% 100%);
   background-size: 500%, 100%;
-  aspect-ratio: 245/130;
+  aspect-ratio: 245/72;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  margin-top: 123px;
+  margin-left: -0.6%;
+
 }
 
 .galleryTrans {
@@ -215,7 +223,7 @@ h4 {
   width: 90%;
   display: flex;
   justify-content: space-between;
-  background-color: rgba(255,255,255,0.2);;
+  background-color: rgba(0,0,0,0.2);;
 }
 
 .message {
@@ -289,6 +297,33 @@ h4 {
   margin-top: -10%;
   justify-content: space-between;
   width:40%
+}
+
+.about {
+  width: 60%;
+  margin: auto;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  flex-direction: column;
+}
+
+.aboutText {
+  color: rgb(80,80,80);
+  margin-top: -1%;
+  text-align: justify;
+  text-justify: inter-word;
+  font-size: large;
+}
+
+.aboutTitle {
+  color: rgb(80,80,80);
+}
+
+.aboutEndLine {
+  background-color: rgb(80,80,80) ;
+  height: 2px;
+  width: 110%;
 }
 
 @keyframes colourChange{
