@@ -5,6 +5,8 @@ import About from './Components/About.js'
 import CardBrace from './Components/CardBrace.js'
 import ImageGrid from './Components/ImageGrid.js';
 import Team from './Components/Team.js';
+import Services from './Components/Services.js';
+import Footer from './Components/Footer.js';
 
   const Main = () => {
 
@@ -16,9 +18,10 @@ import Team from './Components/Team.js';
         <CardBrace />
         <ImageGrid />
         <Team />
+        <Services />
+        <Footer />
       </div>
     )
-
   };
 
 export default Main;

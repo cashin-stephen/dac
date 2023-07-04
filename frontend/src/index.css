@@ -23,13 +23,13 @@ h1 {
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-h3 {
-  margin-left:25px;
-}
-
 h4 {
   margin-left:25px;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.headerItems {
+  margin-left:25px;
 }
 
 .titleBox {
@@ -341,11 +341,10 @@ h4 {
   margin: auto;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   margin-top: 2%;
-  gap: 9%;
+  gap: 10%;
   flex-wrap: wrap;
-  align-items: center;
 }
 
 .cardText {
@@ -369,7 +368,8 @@ h4 {
 }
 
 .linkText {
-  white-space: nowrap
+  white-space: nowrap;
+  align-self: center;
 }
 
 .grid {
@@ -452,6 +452,32 @@ h4 {
   text-align: left;
 }
 
+.services {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: auto;
+  background-color: black;
+  margin-top: 50px;
+}
+
+.serviceTitle {
+  color:white; 
+}
+
+.serviceBrace {
+  display: flex;
+  flex-direction: row;
+  color: white;
+  justify-content: center;
+  gap: 4%;
+}
+
+.serviceText {
+  width: 42%;
+  text-align: left;
+  line-height: 1.5;
+}
 
 
 
