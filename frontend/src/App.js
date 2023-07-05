@@ -7,11 +7,11 @@ import ImageGrid from './Components/ImageGrid.js';
 import Team from './Components/Team.js';
 import Services from './Components/Services.js';
 import Footer from './Components/Footer.js';
-import {useRef, useState, useEffect, forwardRef} from 'react';
+import {useState} from 'react';
 
   const Main = () => {
 
-    const [aboutYy, setAboutY] = useState();
+    const [aboutY, setAboutY] = useState();
 
     const getPosition = (myRef) => {
       const y = myRef.current.offsetTop;
@@ -20,7 +20,7 @@ import {useRef, useState, useEffect, forwardRef} from 'react';
 
     return (
       <div className="Main">
-        <Header aboutY={aboutYy}/>
+        <Header aboutY={aboutY}/>
         <Gallery />
         <About getPosition={getPosition} />
         <CardBrace />

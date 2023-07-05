@@ -22,7 +22,7 @@ const About = ({getPosition}) => {
                 and building while Paul Cashin is a fully qualified electrician also with 24 years
                 experience in coordinating mechanical and electrical services. They have worked 
                 together throughout their careers making a very solid team. The company employs a
-                team of 8 full time professionals. <br></br><br></br>
+                team of 8 full time professionals.
             </p>
             <div className="aboutEndLine"></div>
         </div>
