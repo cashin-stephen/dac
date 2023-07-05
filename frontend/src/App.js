@@ -12,21 +12,39 @@ import {useState} from 'react';
   const Main = () => {
 
     const [aboutY, setAboutY] = useState();
+    const [projectY, setProjectY] = useState();
+    const [teamY, setTeamY] = useState();
+    const [servicesY, setServicesY] = useState();
 
-    const getPosition = (myRef) => {
+    const getAboutPosition = (myRef) => {
       const y = myRef.current.offsetTop;
       setAboutY(y);
     };
 
+    const getProjectPosition = (myRef) => {
+      const y = myRef.current.offsetTop;
+      setProjectY(y);
+    };
+
+    const getTeamPosition = (myRef) => {
+      const y = myRef.current.offsetTop;
+      setTeamY(y);
+    };
+
+    const getServicesPosition = (myRef) => {
+      const y = myRef.current.offsetTop;
+      setServicesY(y);
+    };
+
     return (
       <div className="Main">
-        <Header aboutY={aboutY}/>
+        <Header aboutY={aboutY} projectY={projectY} teamY={teamY} servicesY={servicesY}/>
         <Gallery />
-        <About getPosition={getPosition} />
+        <About getPosition={getAboutPosition} />
         <CardBrace />
-        <ImageGrid />
-        <Team />
-        <Services />
+        <ImageGrid getPosition={getProjectPosition} />
+        <Team getPosition={getTeamPosition}/>
+        <Services getPosition={getServicesPosition} />
         <Footer />
       </div>
     )

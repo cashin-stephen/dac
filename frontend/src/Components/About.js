@@ -1,5 +1,5 @@
 
-import {useRef, useState, useEffect} from 'react';
+import {useRef, useEffect} from 'react';
 const About = ({getPosition}) => {
 
     const myRef = useRef();

@@ -1,9 +1,9 @@
 import logo from '.././images/DAC_TEXT_GIRDLE.png'
 
 
-const Header = (aboutY) => {
+const Header = ({aboutY, projectY, teamY, servicesY}) => {
 
-    const headerOffset = 115;
+    const headerOffset = 128;
 
     const movePage = (offset) => {
         console.log(offset);
@@ -19,14 +19,10 @@ const Header = (aboutY) => {
                     <h3 className="headerItems">F</h3>
                 </div>
                 <div className="localLinks">
-                    <button onClick={() => movePage(aboutY.aboutY)}>
-                        <h4>
-                            About Us
-                        </h4>
-                    </button>
-                    <h4>Our Services</h4>
-                    <h4>Projects</h4>
-                    <h4>Our Team</h4>
+                    <button className="localLinkButton" onClick={() => movePage(aboutY)}>About Us</button>
+                    <button className="localLinkButton" onClick={() => movePage(projectY)}>Projects</button>
+                    <button className="localLinkButton" onClick={() => movePage(teamY)}>Our Team</button>
+                    <button className="localLinkButton" onClick={() => movePage(servicesY)}>Our Services</button>
                     <h4>Testimonials</h4>
                     <h4>Contact Us</h4>
                 </div>
