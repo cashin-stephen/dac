@@ -5,13 +5,12 @@ const Services = ({getPosition}) => {
     const myRef = useRef();
 
     useEffect(() => {
-    getPosition(myRef);
-    }, []);
+        getPosition(myRef);
+    }, [getPosition]);
     
-    // Re-calculate X and Y of the red box when the window is resized by the user
     useEffect(() => {
-    window.addEventListener("resize", () => getPosition(myRef));
-    }, []);
+        window.addEventListener("resize", () => getPosition(myRef));
+    }, [getPosition]);
 
     return (
         <div className="services" ref={myRef}>
@@ -34,12 +33,10 @@ const Services = ({getPosition}) => {
                     + Current Tax clearance certificate <br/>
                     + Employers Liability Insurance <br/>
                     + Public Liability Insurance <br/>
-                    + Contractors All risk insurance <br/>
+                    + Contractors All risk insurance
                     <br/><br/>
 
                     What We Do <br/><br/>
-
-                    DAC & Co. LTD <br/><br/>
 
                     + Can design and build your Project <br/>
                     + Can build your project based on architects drawings and details

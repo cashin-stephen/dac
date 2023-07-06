@@ -11,7 +11,7 @@ const RadioBrace = ({index, num}) => {
         }
     }
     return (
-        <div className = "radio">
+        <div className = "radioTest">
             {rows}
         </div>
 

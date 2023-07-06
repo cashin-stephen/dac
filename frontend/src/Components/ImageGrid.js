@@ -7,12 +7,11 @@ const ImageGrid = ({getPosition}) => {
 
     useEffect(() => {
         getPosition(myRef);
-        }, []);
+    }, [getPosition]);
         
-        // Re-calculate X and Y of the red box when the window is resized by the user
-        useEffect(() => {
+    useEffect(() => {
         window.addEventListener("resize", () => getPosition(myRef));
-        }, []);
+    }, [getPosition]);
 
     return (
 

@@ -7,6 +7,7 @@ import ImageGrid from './Components/ImageGrid.js';
 import Team from './Components/Team.js';
 import Services from './Components/Services.js';
 import Footer from './Components/Footer.js';
+import Testimonials from './Components/Testemonials.js';
 import {useState} from 'react';
 
   const Main = () => {
@@ -15,6 +16,7 @@ import {useState} from 'react';
     const [projectY, setProjectY] = useState();
     const [teamY, setTeamY] = useState();
     const [servicesY, setServicesY] = useState();
+    const [testemonialsY, setTestemonialsY] = useState();
 
     const getAboutPosition = (myRef) => {
       const y = myRef.current.offsetTop;
@@ -36,9 +38,14 @@ import {useState} from 'react';
       setServicesY(y);
     };
 
+    const getTestemonialsPosition = (myRef) => {
+      const y = myRef.current.offsetTop;
+      setTestemonialsY(y);
+    };
+
     return (
       <div className="Main">
-        <Header aboutY={aboutY} projectY={projectY} teamY={teamY} servicesY={servicesY}/>
+        <Header aboutY={aboutY} projectY={projectY} teamY={teamY} servicesY={servicesY} testemonialsY={testemonialsY}/>
         <Gallery />
         <About getPosition={getAboutPosition} />
         <CardBrace />
@@ -46,6 +53,7 @@ import {useState} from 'react';
         <Team getPosition={getTeamPosition}/>
         <Services getPosition={getServicesPosition} />
         <Footer />
+        <Testimonials getPosition={getTestemonialsPosition}/>
       </div>
     )
   };

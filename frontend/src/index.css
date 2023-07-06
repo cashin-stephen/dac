@@ -176,9 +176,16 @@ p {
 .logo {
   height: 90px;
   width: auto;
-  margin: 10px;
+
   margin-left: 3%;
   margin-right:-150px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  padding-right: 15px;
+  border: 0px;
+  border-right: 2px;
+  border-style: solid;
+  border-color: gray;
 }
 
 .info {
@@ -256,33 +263,37 @@ p {
   opacity: 0;
 }
 
-.galleryBackButton {
+.galleryButton {
   border: none;
   background-color: transparent;
   transition-duration: 0.4s;
   font-size: 36px;
-  color: white;
   opacity: 0.5;
+}
+
+.white {
+  color:white
+}
+
+.gray {
+  color: gray
+}
+
+.back {
   margin-left: 3%;
 }
 
-.galleryBackButton:hover {
+.back:hover {
   font-size: 48px;
   opacity: 1;
   margin-right: -7px;
 }
 
-.galleryForwardButton {
-  border: none;
-  background-color: transparent;
-  transition-duration: 0.4s;
-  font-size: 36px;
-  color: white;
-  opacity: 0.5;
+.forward {
   margin-right: 3%;
 }
 
-.galleryForwardButton:hover {
+.forward:hover {
   font-size: 48px;
   opacity: 1;
   margin-left: -7px;
@@ -318,6 +329,13 @@ p {
   margin-top: -10%;
   justify-content: space-between;
   width:40%
+}
+
+.radioTest {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 3%;
+  gap:10px;
 }
 
 .about {
@@ -480,6 +498,7 @@ p {
   margin: auto;
   background-color: black;
   margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .serviceTitle {
@@ -500,7 +519,57 @@ p {
   line-height: 1.5;
 }
 
+.testemonials {
+  width: 101.2%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: gray;
+  margin-left: -0.6%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
 
+
+.clientImg {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  border-width: 20px;
+  border-color: #f5f5ff;
+  border-style: solid;
+  z-index: 1;
+  margin-bottom: -40px;
+}
+
+.textContainer {
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+  background-color: #f5f5ff;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 25px;
+}
+
+.testemonialText {
+  display: flex;
+  flex-direction: column;
+}
+
+.testemony {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-style: italic;
+}
+
+.testemonialSignOff {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.testemonialRadio {
+  margin-top: 20px;
+}
 
 @keyframes colourChange{
   0% {background: red;}

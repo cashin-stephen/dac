@@ -5,13 +5,12 @@ const About = ({getPosition}) => {
     const myRef = useRef();
 
     useEffect(() => {
-    getPosition(myRef);
-    }, []);
+        getPosition(myRef);
+    }, [getPosition]);
     
-    // Re-calculate X and Y of the red box when the window is resized by the user
     useEffect(() => {
-    window.addEventListener("resize", () => getPosition(myRef));
-    }, []);
+        window.addEventListener("resize", () => getPosition(myRef));
+    }, [getPosition]);
 
     return (
         <div className="about" ref={myRef}>
