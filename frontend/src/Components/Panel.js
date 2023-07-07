@@ -13,8 +13,8 @@ const Panel = ({color}) => {
     <div className="panel" style={{backgroundColor: color}}
         onMouseEnter={() => setWidth("200px")}
         onMouseLeave={() => setWidth("0px")}>
-        <div className="panelBanner">
-            <button className="panelBanner" onClick={linkPress} style={{width: width}}>
+        <div className="panelBanner" style={{width: width}}>
+            <button className="panelBanner" onClick={linkPress}>
                 <h5 className = "panelText">VIEW PROJECT</h5>
             </button>
         </div>

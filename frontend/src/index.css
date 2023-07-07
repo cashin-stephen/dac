@@ -239,7 +239,7 @@ p {
   justify-content: space-between;
   margin-top: 123px;
   margin-left: -0.6%;
-
+  box-shadow: -3px 3px 3px #888888;
 }
 
 .galleryTrans {
@@ -426,11 +426,10 @@ p {
   justify-content: end;
   align-items: center;
   transition: 0.8s;
-
 }
 
 .panelBanner {
-  background-color: rgb(80,80,80,0.5);
+  background-color: rgb(80,80,80);
   border: none;
   color: white;
   display: flex;
@@ -442,9 +441,11 @@ p {
   align-items: center;
   height: 50px;
   transition-duration: 1s;
+  overflow: hidden;
 }
 
 .panelText {
+  color: rgb(255,255,255);
   white-space: nowrap;
   margin-left: 10px;
   overflow: hidden;
@@ -529,6 +530,7 @@ p {
   margin-left: -0.6%;
   padding-top: 50px;
   padding-bottom: 50px;
+  box-shadow: -3px 3px 3px #888888;
 }
 
 
