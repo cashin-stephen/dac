@@ -5,7 +5,7 @@ const Testimonials = ({getPosition}) => {
 
     const myRef = useRef();
     const [testmonyList] = useState([
-                            "Excellent Work",
+                            "Excellent WorkExcellent WorkExcellent WorkExcellent WorkExcellent WorkExcellent WorkExcellent WorkExcellent WorkExcellent WorkExcellent WorkExcellent WorkExcellent Work",
                             "Great Job",
                             "Well Done",
                             "Absolutely Perfect",

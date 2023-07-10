@@ -2,7 +2,16 @@ const Footer = () => {
 
     const year = new Date().getFullYear();
 
-    return <footer>{`DAC ${year}`}</footer>
+    return (
+        <div className="footerManual">
+            <div className="footerSection">
+                <p className="contactText">Designed By Stephen Cashin</p>
+            </div>
+            <div className="footerSection">
+                <p className="contactText">DAC 2023</p>
+            </div>
+        </div>
+    )
 
 }
 

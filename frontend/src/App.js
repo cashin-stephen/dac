@@ -8,6 +8,7 @@ import Team from './Components/Team.js';
 import Services from './Components/Services.js';
 import Footer from './Components/Footer.js';
 import Testimonials from './Components/Testemonials.js';
+import Contact from './Components/Contact.js';
 import {useState} from 'react';
 
   const Main = () => {
@@ -17,6 +18,7 @@ import {useState} from 'react';
     const [teamY, setTeamY] = useState();
     const [servicesY, setServicesY] = useState();
     const [testemonialsY, setTestemonialsY] = useState();
+    const [contactY, setContactY] = useState();
 
     const getAboutPosition = (myRef) => {
       const y = myRef.current.offsetTop;
@@ -43,17 +45,23 @@ import {useState} from 'react';
       setTestemonialsY(y);
     };
 
+    const getContactPosition = (myRef) => {
+      const y = myRef.current.offsetTop;
+      setContactY(y);
+    };
+
     return (
       <div className="Main">
-        <Header aboutY={aboutY} projectY={projectY} teamY={teamY} servicesY={servicesY} testemonialsY={testemonialsY}/>
+        <Header aboutY={aboutY} projectY={projectY} teamY={teamY} servicesY={servicesY} testemonialsY={testemonialsY} contactY={contactY}/>
         <Gallery />
         <About getPosition={getAboutPosition} />
         <CardBrace />
         <ImageGrid getPosition={getProjectPosition} />
         <Team getPosition={getTeamPosition}/>
         <Services getPosition={getServicesPosition} />
-        <Footer />
         <Testimonials getPosition={getTestemonialsPosition}/>
+        <Contact getPosition={getContactPosition}/>
+        <Footer />
       </div>
     )
   };
