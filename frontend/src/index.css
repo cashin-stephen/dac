@@ -32,9 +32,8 @@ h3 {
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 
-h4 {
-  margin-left:25px;
-  font-family:Arial, Helvetica, sans-serif
+h5 {
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 
 p {
@@ -168,42 +167,32 @@ p {
   width: 101%;
   display: flex;
   background-color: #f5f5ff;
-  justify-content: space-between;
-  align-items: end;
   position: fixed;
   right:0;
   left:0;
   top: 0;
   box-shadow: -3px 3px 3px #888888;
-  z-index: 1;
+  z-index: 2;
 }
 
 .logo {
-  height: 90px;
   width: auto;
-
-  margin-left: 3%;
-  margin-right:-150px;
-  padding-top: 20px;
+  padding-top: 15px;
   padding-bottom: 10px;
-  padding-right: 15px;
+  padding-right: 20px;
+  padding-left: 20px;
   border: 0px;
   border-right: 2px;
   border-style: solid;
   border-color: gray;
+  transition: 1s ease-in-out
 }
 
 .info {
   display: flex;
   flex-direction: column;
-  align-items: end;
-  margin-right: 3%;
-}
-.offLinks {
-  display:flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  margin-top: -30px;
+  width: 100%;
+  height: 100%;
 }
 
 .emailLink {
@@ -211,16 +200,34 @@ p {
   width: auto;
   color: black;
 }
+.headerContact {
+  background-color: rgb(220,220,220,0.6);
+  display: flex;
+  flex-direction: row;
+  height: 30px;
+  width: 100%;
+  border-bottom: 2px solid rgb(0,0,0);
+}
+
+.headerEmail {
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  display: flex;
+  border-right: 3px solid rgb(0,0,0);
+}
 
 .localLinks {
   display:flex;
   flex-direction: row;
-  justify-content: space-evenly;
-  margin-top: -10px;
+  align-items:last baseline;
+  justify-content: center;
   white-space: nowrap;
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  gap:10px;
-  margin-bottom: 5px;
+  gap:3%;
+  margin-right: 30px;
+  transition: 1s ease-in-out
 }
 
 .localLinkButton {
@@ -243,7 +250,7 @@ p {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  margin-top: 123px;
+  margin-top: 140px;
   margin-left: -0.6%;
   box-shadow: -3px 3px 3px #888888;
 }

@@ -3,7 +3,7 @@ import RadioBrace from './Radio';
 
 const Gallery = () => {
 
-    const [messageIndex, setMessageIndex] = useState(0)
+    const [messageIndex, setMessageIndex] = useState(0);
     const [imgIndex, setImgIndex] = useState(0);
     const [messageList] = useState(["Bespoke Building Solutions", "Other Things", "A third Thing", "Four", "Five"])
     const [transition, setTransition] = useState("1s ease-out");

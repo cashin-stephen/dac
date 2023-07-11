@@ -50,7 +50,7 @@ const Contact = ({getPosition}) => {
                             </div>
                         </div>
                         <label ><p className="formLabel">Message</p></label>
-                        <textarea rows={4} id="messageInput" name="messageInput" placeholder="Your Message..."></textarea>
+                        <textarea rows={5} id="messageInput" name="messageInput" placeholder="Your Message..."></textarea>
                         <div className="contactDetails">
                             <div className="nameContact">
                                 <input type="text" id="captchaPlaceHolder" name="nameInput"  placeholder="Captcha Here" /><br></br>

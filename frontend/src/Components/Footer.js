@@ -8,7 +8,7 @@ const Footer = () => {
                 <p className="contactText">Designed By Stephen Cashin</p>
             </div>
             <div className="footerSection">
-                <p className="contactText">DAC 2023</p>
+                <p className="contactText">DAC {year}</p>
             </div>
         </div>
     )
