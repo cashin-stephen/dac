@@ -1,4 +1,4 @@
-const Footer = () => {
+const Footer = ({fixed}) => {
 
     const year = new Date().getFullYear();
 

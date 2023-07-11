@@ -41,16 +41,22 @@ const Contact = ({getPosition}) => {
                     <form className="contactForm">
                         <div className="contactDetails">
                             <div className="nameContact">
-                                <label><p className="formLabel">Name</p></label>
-                                <input type="text" id="nameInput" name="nameInput"  placeholder="Your Name..." /><br></br>
+                                <label>
+                                    <p className="formLabel">Name</p>
+                                    <input type="text" id="nameInput" name="nameInput"  placeholder="Your Name..." required/><br></br>
+                                </label>
                             </div>
                             <div className="nameContact">
-                                <label ><p className="formLabel">Email</p></label>
-                                <input type="text" id="emailInput" name="emailInput" placeholder="Your Email..." /><br></br>
+                                <label >
+                                    <p className="formLabel">Email</p>
+                                    <input type="text" id="emailInput" name="emailInput" placeholder="Your Email..." required/><br></br>
+                                </label>
                             </div>
                         </div>
-                        <label ><p className="formLabel">Message</p></label>
-                        <textarea rows={5} id="messageInput" name="messageInput" placeholder="Your Message..."></textarea>
+                        <label>
+                            <p className="formLabel">Message</p>
+                            <textarea rows={5} id="messageInput" name="messageInput" placeholder="Your Message..." required></textarea>
+                        </label>
                         <div className="contactDetails">
                             <div className="nameContact">
                                 <input type="text" id="captchaPlaceHolder" name="nameInput"  placeholder="Captcha Here" /><br></br>

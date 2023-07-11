@@ -31,7 +31,9 @@ const Header = ({aboutY, projectY, teamY, servicesY, testemonialsY, contactY}) =
     
     return (
         <header className = "header">
+            <a href={`/`}>
             <img className = "logo" src={logo} style={{height: logoHeight}} alt="DAC & Co. ltd Building Contractors"/>
+            </a>
             <div className="info">
                 <div className="headerContact">
                     <div className="headerEmail">

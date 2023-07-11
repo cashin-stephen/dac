@@ -52,15 +52,17 @@ import {useState} from 'react';
 
     return (
       <div className="Main">
-        <Header aboutY={aboutY} projectY={projectY} teamY={teamY} servicesY={servicesY} testemonialsY={testemonialsY} contactY={contactY}/>
-        <Gallery />
-        <About getPosition={getAboutPosition} />
-        <CardBrace />
-        <ImageGrid getPosition={getProjectPosition} />
-        <Team getPosition={getTeamPosition}/>
-        <Services getPosition={getServicesPosition} />
-        <Testimonials getPosition={getTestemonialsPosition}/>
-        <Contact getPosition={getContactPosition}/>
+        <div className="mainWrapper">
+          <Header aboutY={aboutY} projectY={projectY} teamY={teamY} servicesY={servicesY} testemonialsY={testemonialsY} contactY={contactY}/>
+          <Gallery />
+          <About getPosition={getAboutPosition} />
+          <CardBrace />
+          <ImageGrid getPosition={getProjectPosition} />
+          <Team getPosition={getTeamPosition}/>
+          <Services getPosition={getServicesPosition} />
+          <Testimonials getPosition={getTestemonialsPosition}/>
+          <Contact getPosition={getContactPosition}/>
+        </div>
         <Footer />
       </div>
     )
