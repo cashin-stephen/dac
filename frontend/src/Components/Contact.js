@@ -1,25 +1,24 @@
-
 import logoInverted from '../images/DAC_TEXT_GIRDLE_INVERTED.png'
-import {useRef, useEffect} from 'react';
+import React, { useRef, useEffect } from 'react'
+import PropTypes from 'prop-types'
 
-const Contact = ({getPosition}) => {
+const Contact = ({ getPosition }) => {
+  const myRef = useRef()
 
-    const myRef = useRef();
+  useEffect(() => {
+    getPosition(myRef)
+  }, [getPosition])
 
-    useEffect(() => {
-        getPosition(myRef);
-    }, [getPosition]);
-    
-    useEffect(() => {
-        window.addEventListener("resize", () => getPosition(myRef));
-    }, [getPosition]);
+  useEffect(() => {
+    window.addEventListener('resize', () => getPosition(myRef))
+  }, [getPosition])
 
-    return (
+  return (
         <div className="contact" ref={myRef}>
             <div className="contactInfo">
                 <div className="upperContact">
                     <div className="logoSection">
-                        <img className = "logoInverted" src={logoInverted} alt="DAC & Co. ltd Building Contractors"/> 
+                        <img className = "logoInverted" src={logoInverted} alt="DAC & Co. ltd Building Contractors"/>
                     </div>
                     <div className="contactTitleSection">
                         <p className="contactText"> <b>Contact Us</b></p>
@@ -43,7 +42,7 @@ const Contact = ({getPosition}) => {
                             <div className="nameContact">
                                 <label>
                                     <p className="formLabel">Name</p>
-                                    <input type="text" id="nameInput" name="nameInput"  placeholder="Your Name..." required/><br></br>
+                                    <input type="text" id="nameInput" name="nameInput" placeholder="Your Name..." required/><br></br>
                                 </label>
                             </div>
                             <div className="nameContact">
@@ -59,7 +58,7 @@ const Contact = ({getPosition}) => {
                         </label>
                         <div className="contactDetails">
                             <div className="nameContact">
-                                <input type="text" id="captchaPlaceHolder" name="nameInput"  placeholder="Captcha Here" /><br></br>
+                                <input type="text" id="captchaPlaceHolder" name="nameInput" placeholder="Captcha Here" /><br></br>
                             </div>
                             <div className="nameContact">
                                 <input type="submit" value="Submit" />
@@ -68,11 +67,13 @@ const Contact = ({getPosition}) => {
 
                     </form>
                 </div>
-                {/* <img className = "logoInverted" src={logoInverted} alt="DAC & Co. ltd Building Contractors"/> */}
             </div>
         </div>
-    )
+  )
+}
 
+Contact.propTypes = {
+  getPosition: PropTypes.func.isRequired
 }
 
 export default Contact

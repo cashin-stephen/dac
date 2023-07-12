@@ -1,18 +1,18 @@
-import {useRef, useEffect} from 'react';
+import React, { useRef, useEffect } from 'react'
+import PropTypes from 'prop-types'
 
-const Services = ({getPosition}) => {
+const Services = ({ getPosition }) => {
+  const myRef = useRef()
 
-    const myRef = useRef();
+  useEffect(() => {
+    getPosition(myRef)
+  }, [getPosition])
 
-    useEffect(() => {
-        getPosition(myRef);
-    }, [getPosition]);
-    
-    useEffect(() => {
-        window.addEventListener("resize", () => getPosition(myRef));
-    }, [getPosition]);
+  useEffect(() => {
+    window.addEventListener('resize', () => getPosition(myRef))
+  }, [getPosition])
 
-    return (
+  return (
         <div className="services" ref={myRef}>
             <h1 className="serviceTitle">Our Services</h1>
             <div className="serviceBrace">
@@ -42,10 +42,10 @@ const Services = ({getPosition}) => {
                     + Can build your project based on architects drawings and details
                 </p>
                 <p className="serviceText">
-                    Our Company provides two services which complement each other 
+                    Our Company provides two services which complement each other
                     <br/><br/>
 
-                    1. DAC design 
+                    1. DAC design
                     <br/> <br/>
 
                     + DAC Design will transform your ideas for renovation, Extension
@@ -71,8 +71,11 @@ const Services = ({getPosition}) => {
                 </p>
             </div>
         </div>
-    )
+  )
+}
 
+Services.propTypes = {
+  getPosition: PropTypes.func.isRequired
 }
 
 export default Services

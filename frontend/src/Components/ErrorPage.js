@@ -1,13 +1,13 @@
-import { useRouteError } from "react-router-dom";
-import Header from "./Header";
-import Footer from "./Footer";
+import { useRouteError } from 'react-router-dom'
+import Header from './Header'
+import Footer from './Footer'
+import React from 'react'
 
 const ErrorPage = () => {
+  const error = useRouteError()
+  console.error(error)
 
-    const error = useRouteError();
-    console.error(error);
-
-    return (
+  return (
         <>
             <Header />
             <div className="errorPage">
@@ -19,9 +19,7 @@ const ErrorPage = () => {
             </div>
             <Footer/>
         </>
-
-    )
-
+  )
 }
 
 export default ErrorPage

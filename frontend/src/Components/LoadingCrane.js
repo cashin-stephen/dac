@@ -1,11 +1,11 @@
-import craneBase from "./../images/CraneBaseWhite.png"
-import craneBody from "./../images/craneBodyWhite.png"
-import craneGrabber from "./../images/grabber.png"
-import box from "./../images/box.png"
+import craneBase from './../images/CraneBaseWhite.png'
+import craneBody from './../images/craneBodyWhite.png'
+import craneGrabber from './../images/grabber.png'
+import box from './../images/box.png'
+import React from 'react'
 
 const LoadingCrane = () => {
-
-    return (
+  return (
         <div className= "crane" >
             <img className = "craneBody" src={craneBody} alt="base of Construction Crane"/>
             <div className="lowerCrane">
@@ -24,7 +24,7 @@ const LoadingCrane = () => {
                 </div>
             </div>
         </div>
-    )
- }
+  )
+}
 
 export default LoadingCrane

@@ -1,23 +1,28 @@
-const RadioBrace = ({index, num}) => {
-    const rows = [];
-    for (let i = 0; i < num; i++) {
-        if(i === index) {
-            rows.push(<span className="dot" key={i}>
+import React from 'react'
+import PropTypes from 'prop-types'
+
+const RadioBrace = ({ index, num }) => {
+  const rows = []
+  for (let i = 0; i < num; i++) {
+    if (i === index) {
+      rows.push(<span className="dot" key={i}>
                     <span className="activeDot"></span>
-                </span>);
-        }
-        else {
-            rows.push(<span className="dot" key={i}></span>);
-        }
+                </span>)
+    } else {
+      rows.push(<span className="dot" key={i}></span>)
     }
-    return (
+  }
+  return (
         <div className = "radioTest">
             {rows}
         </div>
 
-
-    )
-
+  )
 }
 
-export default RadioBrace;
+RadioBrace.propTypes = {
+  index: PropTypes.number.isRequired,
+  num: PropTypes.number.isRequired
+}
+
+export default RadioBrace

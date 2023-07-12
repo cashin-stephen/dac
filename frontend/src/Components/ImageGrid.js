@@ -1,29 +1,33 @@
-import Panel from "./Panel"
-import {useRef, useEffect} from 'react';
+import Panel from './Panel'
+import React, { useRef, useEffect } from 'react'
+import PropTypes from 'prop-types'
 
-const ImageGrid = ({getPosition}) => {
+const ImageGrid = ({ getPosition }) => {
+  const myRef = useRef()
 
-    const myRef = useRef();
+  useEffect(() => {
+    getPosition(myRef)
+  }, [getPosition])
 
-    useEffect(() => {
-        getPosition(myRef);
-    }, [getPosition]);
-        
-    useEffect(() => {
-        window.addEventListener("resize", () => getPosition(myRef));
-    }, [getPosition]);
+  useEffect(() => {
+    window.addEventListener('resize', () => getPosition(myRef))
+  }, [getPosition])
 
-    return (
+  return (
 
         <div className="grid" ref={myRef}>
-            <Panel color={"red"} />
-            <Panel color={"blue"} />
-            <Panel color={"purple"} />
-            <Panel color={"green"} />
-            <Panel color={"orange"} />
-            <Panel color={"brown"} />
+            <Panel color={'red'} />
+            <Panel color={'blue'} />
+            <Panel color={'purple'} />
+            <Panel color={'green'} />
+            <Panel color={'orange'} />
+            <Panel color={'brown'} />
         </div>
-    )
+  )
+}
+
+ImageGrid.propTypes = {
+  getPosition: PropTypes.func.isRequired
 }
 
 export default ImageGrid

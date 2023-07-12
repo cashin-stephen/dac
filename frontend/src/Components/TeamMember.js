@@ -1,6 +1,7 @@
-const TeamMember = () => {
+import React from 'react'
 
-    return (
+const TeamMember = () => {
+  return (
         <div className="teamItem">
             <div className="teamImg"/>
             <p className="teamText">
@@ -14,8 +15,7 @@ const TeamMember = () => {
             luctus arcu.
             </p>
         </div>
-    )
-
+  )
 }
 
 export default TeamMember
