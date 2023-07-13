@@ -236,6 +236,43 @@ p {
   transition: 1s ease-in-out
 }
 
+.dropdownLinks {
+  display: flex;
+  align-items:flex-start;
+  justify-content: center;
+  transition: 1s ease-in-out
+}
+
+.dropdownImg {
+  height: 44px;
+  width: auto;
+  transition: 0.2s ease-in-out;
+  margin-bottom: -9px;
+}
+
+.dropdownButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdownBox {
+  align-self: baseline;
+  width: 1px;
+  height: 1px;
+  border: 2px solid rgb(0,0,0,0.6);
+  overflow: hidden;
+  transition: 1s ease-in-out;
+  display: block;
+}
+
+.dropdownBox a {
+  color: black;
+  text-decoration: none;
+  display: block;
+}
+  
+
 .localLinkButton {
   border: none;
   background-color: transparent;

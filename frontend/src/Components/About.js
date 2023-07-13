@@ -14,7 +14,7 @@ const About = ({ getPosition }) => {
 
   return (
         <div className="about" ref={myRef}>
-            <h1 className="title">About us</h1>
+            <h1 className="title">About Us</h1>
             <p className="aboutText">
                 DAC & Co. LTD is a family buiness owned and managed by Dave and Paul Cashin.
                 Dave Cashin is a structural engineer with 23 years experience in home designing
