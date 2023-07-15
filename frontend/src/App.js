@@ -9,6 +9,7 @@ import Services from './Components/Services.js'
 import Footer from './Components/Footer.js'
 import Testimonials from './Components/Testemonials.js'
 import Contact from './Components/Contact.js'
+import { useNavigate } from 'react-router-dom'
 
 const Main = () => {
   const [aboutY, setAboutY] = useState()
@@ -17,9 +18,16 @@ const Main = () => {
   const [servicesY, setServicesY] = useState()
   const [testemonialsY, setTestemonialsY] = useState()
   const [contactY, setContactY] = useState()
+  const navigate = useNavigate()
 
   const getAboutPosition = (myRef) => {
     const y = myRef.current.offsetTop
+    const url = window.location.href
+    console.log('getAboutPosition')
+    if (url !== 'http://localhost:3000/#') {
+      navigate('/#')
+      console.log('redirecting')
+    }
     setAboutY(y)
   }
 
