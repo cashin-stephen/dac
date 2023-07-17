@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 
 const Header = ({ aboutY, projectY, teamY, servicesY, testemonialsY, contactY }) => {
   const [logoHeight, setLogoHeight] = useState(100)
-  const [linkHeight, setLinkHeight] = useState(70)
+  const [linkHeight, setLinkHeight] = useState(68)
   const [linkWidth, setlinksWidth] = useState(0)
 
   const headerOffset = -25
@@ -19,17 +19,18 @@ const Header = ({ aboutY, projectY, teamY, servicesY, testemonialsY, contactY })
     const documentElement = document.documentElement
     if (documentElement.scrollTop < 50) {
       setLogoHeight(100)
-      setLinkHeight(73)
+      setLinkHeight(68)
     } else {
       setLogoHeight(65)
-      setLinkHeight(38)
+      setLinkHeight(33)
     }
+    evaluateLinks()
   }
 
   const evaluateLinks = useCallback(() => {
     // monitor for performance Important
-    setlinksWidth(document.querySelector('.info').offsetWidth)
-    console.log(linkWidth)
+    // also revisit for state Control
+    setTimeout(() => setlinksWidth(document.querySelector('.info').offsetWidth), 500)
   }, [])
 
   useEffect(() => {
@@ -42,7 +43,6 @@ const Header = ({ aboutY, projectY, teamY, servicesY, testemonialsY, contactY })
 
   useEffect(() => {
     evaluateLinks()
-    console.log(window.location.href)
   }, [])
 
   // condtional rendering was causing errors, flip collapsed Link to false to demonstrate
