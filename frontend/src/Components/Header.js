@@ -1,6 +1,7 @@
 import logo from '.././images/DAC_TEXT_GIRDLE.png'
 import React, { useCallback, useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
+import { useNavigate } from 'react-router-dom'
 
 // consider refactoring...
 
@@ -8,10 +9,15 @@ const Header = ({ aboutY, projectY, teamY, servicesY, testemonialsY, contactY })
   const [logoHeight, setLogoHeight] = useState(100)
   const [linkHeight, setLinkHeight] = useState(68)
   const [linkWidth, setlinksWidth] = useState(0)
+  const navigate = useNavigate()
 
   const headerOffset = -25
 
-  const movePage = (offset) => {
+  const movePage = (offset, section) => {
+    navigate({
+      pathname: '/',
+      search: 'section=' + section
+    })
     window.scrollTo({ top: offset - headerOffset, left: 0, behavior: 'smooth' })
   }
 
@@ -24,13 +30,11 @@ const Header = ({ aboutY, projectY, teamY, servicesY, testemonialsY, contactY })
       setLogoHeight(65)
       setLinkHeight(33)
     }
-    evaluateLinks()
   }
 
   const evaluateLinks = useCallback(() => {
     // monitor for performance Important
-    // also revisit for state Control
-    setTimeout(() => setlinksWidth(document.querySelector('.info').offsetWidth), 500)
+    setlinksWidth(document.querySelector('.info').offsetWidth)
   }, [])
 
   useEffect(() => {
@@ -45,25 +49,29 @@ const Header = ({ aboutY, projectY, teamY, servicesY, testemonialsY, contactY })
     evaluateLinks()
   }, [])
 
+  useEffect(() => {
+    setTimeout(() => evaluateLinks(), 500)
+  }, [linkHeight])
+
   // condtional rendering was causing errors, flip collapsed Link to false to demonstrate
   const navLinks =
     <div className="localLinks" style={{ marginTop: linkHeight }}>
-        {linkWidth > 190 ? <button className="localLinkButton" onClick={() => movePage(aboutY)}>About Us</button> : null }
-        {linkWidth > 290 ? <button className="localLinkButton" onClick={() => movePage(projectY)}>Projects</button> : null }
-        {linkWidth > 420 ? <button className="localLinkButton" onClick={() => movePage(teamY)}>Our Team</button> : null }
-        {linkWidth > 550 ? <button className="localLinkButton" onClick={() => movePage(servicesY)}>Our Services</button> : null }
-        {linkWidth > 680 ? <button className="localLinkButton" onClick={() => movePage(testemonialsY)}>Testemonials</button> : null }
-        {linkWidth > 810 ? <button className="localLinkButton" onClick={() => movePage(contactY)}>Contact Us</button> : null }
+        {linkWidth > 190 ? <button className="localLinkButton" onClick={() => movePage(aboutY, 'about')}>About Us</button> : null }
+        {linkWidth > 290 ? <button className="localLinkButton" onClick={() => movePage(projectY, 'project')}>Projects</button> : null }
+        {linkWidth > 420 ? <button className="localLinkButton" onClick={() => movePage(teamY, 'team')}>Our Team</button> : null }
+        {linkWidth > 550 ? <button className="localLinkButton" onClick={() => movePage(servicesY, 'services')}>Our Services</button> : null }
+        {linkWidth > 680 ? <button className="localLinkButton" onClick={() => movePage(testemonialsY, 'testemonials')}>Testemonials</button> : null }
+        {linkWidth > 810 ? <button className="localLinkButton" onClick={() => movePage(contactY, 'contact')}>Contact Us</button> : null }
         {linkWidth < 810
           ? <div className='moreDropdown'>
             <button className="localLinkButton">More ▽</button>
             <div className='dropdownLinks'>
-            {linkWidth < 190 ? <button onClick={() => movePage(aboutY)}>About Us</button> : null }
-            {linkWidth < 290 ? <button onClick={() => movePage(projectY)}>Projects</button> : null }
-            {linkWidth < 420 ? <button onClick={() => movePage(teamY)}>Our Team</button> : null }
-            {linkWidth < 550 ? <button onClick={() => movePage(servicesY)}>Our Services</button> : null }
-            {linkWidth < 680 ? <button onClick={() => movePage(testemonialsY)}>Testemonials</button> : null }
-            {linkWidth < 810 ? <button onClick={() => movePage(contactY)}>Contact Us</button> : null }
+            {linkWidth < 190 ? <button onClick={() => movePage(aboutY, 'about')}>About Us</button> : null }
+            {linkWidth < 290 ? <button onClick={() => movePage(projectY, 'project')}>Projects</button> : null }
+            {linkWidth < 420 ? <button onClick={() => movePage(teamY, 'team')}>Our Team</button> : null }
+            {linkWidth < 550 ? <button onClick={() => movePage(servicesY, 'services')}>Our Services</button> : null }
+            {linkWidth < 680 ? <button onClick={() => movePage(testemonialsY, 'testemonials')}>Testemonials</button> : null }
+            {linkWidth < 810 ? <button onClick={() => movePage(contactY, 'contact')}>Contact Us</button> : null }
           </div>
         </div>
           : null

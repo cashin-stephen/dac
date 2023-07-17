@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from './Components/Header.js'
 import Gallery from './Components/Gallery.js'
 import About from './Components/About.js'
@@ -9,7 +9,7 @@ import Services from './Components/Services.js'
 import Footer from './Components/Footer.js'
 import Testimonials from './Components/Testemonials.js'
 import Contact from './Components/Contact.js'
-// import { useNavigate } from 'react-router-dom'
+// import { useParams } from 'react-router-dom'
 
 const Main = () => {
   const [aboutY, setAboutY] = useState()
@@ -18,17 +18,11 @@ const Main = () => {
   const [servicesY, setServicesY] = useState()
   const [testemonialsY, setTestemonialsY] = useState()
   const [contactY, setContactY] = useState()
-  // const navigate = useNavigate()
+  const [intiialY, setInitialY] = useState(false)
+  const headerOffset = -25
 
   const getAboutPosition = (myRef) => {
     const y = myRef.current.offsetTop
-    // const url = window.location.href
-    // console.log(url)
-    // console.log('getAboutPosition')
-    // if (url !== 'http://localhost:3000/) {
-    //   navigate('/#')
-    //   console.log('redirecting')
-    // }
     setAboutY(y)
   }
 
@@ -56,6 +50,20 @@ const Main = () => {
     const y = myRef.current.offsetTop
     setContactY(y)
   }
+
+  // Bad code, revisit if you have integrity
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    const section = params.get('section')
+    // eslint-disable-next-line no-eval
+    const currentY = eval(section + 'Y')
+    if (!intiialY && section !== null) {
+      window.scrollTo({ top: currentY - headerOffset, left: 0, behavior: 'smooth' })
+      if (!isNaN(currentY)) {
+        setInitialY(true)
+      }
+    }
+  }, [teamY])
 
   return (
       <div className="Main">
