@@ -1,7 +1,7 @@
 import logo from '.././images/DAC_TEXT_GIRDLE.png'
 import React, { useCallback, useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 
 // consider refactoring...
 
@@ -10,14 +10,17 @@ const Header = ({ aboutY, projectY, teamY, servicesY, testemonialsY, contactY })
   const [linkHeight, setLinkHeight] = useState(68)
   const [linkWidth, setlinksWidth] = useState(0)
   const navigate = useNavigate()
+  const location = useLocation()
 
   const headerOffset = -25
 
   const movePage = (offset, section) => {
-    navigate({
-      pathname: '/',
-      search: 'section=' + section
-    })
+    if (location.pathname !== '/') {
+      navigate({
+        pathname: '/',
+        search: 'section=' + section
+      })
+    }
     window.scrollTo({ top: offset - headerOffset, left: 0, behavior: 'smooth' })
   }
 

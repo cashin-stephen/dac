@@ -55,12 +55,15 @@ const Main = () => {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
     const section = params.get('section')
-    // eslint-disable-next-line no-eval
-    const currentY = eval(section + 'Y')
-    if (!intiialY && section !== null) {
-      window.scrollTo({ top: currentY - headerOffset, left: 0, behavior: 'smooth' })
-      if (!isNaN(currentY)) {
-        setInitialY(true)
+    let currentY
+    if (section !== null) {
+      // eslint-disable-next-line no-eval
+      currentY = eval(section + 'Y')
+      if (!intiialY) {
+        window.scrollTo({ top: currentY - headerOffset, left: 0, behavior: 'smooth' })
+        if (!isNaN(currentY)) {
+          setInitialY(true)
+        }
       }
     }
   }, [teamY])
