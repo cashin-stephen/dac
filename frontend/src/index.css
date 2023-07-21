@@ -178,7 +178,7 @@ p {
   left:0;
   top: 0;
   box-shadow: -3px 3px 3px #888888;
-  z-index: 2;
+  z-index: 3;
 }
 
 .logo {
@@ -833,6 +833,7 @@ textarea:focus {
   bottom: 0;
   width: 100%;
   height: 2.5rem;
+  z-index: 3;
 }
 
 .footerSection {
@@ -852,6 +853,27 @@ textarea:focus {
   align-items: center;
   justify-content: center;
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+.projectSidebar {
+  height: 101%;
+  width: 25%;
+  background-color: rgb(224,224,224);
+  position: fixed;
+  left:0;
+  top: 0;
+  box-shadow: -3px 3px 3px #888888;
+  z-index: 2;
+}
+
+.sideBarContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height:100%;
+  width: 100%;
+  z-index: 3;
 }
 
 @keyframes colourChange{

@@ -1,15 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Header from './Components/Header.js'
-import Gallery from './Components/Gallery.js'
-import About from './Components/About.js'
-import CardBrace from './Components/CardBrace.js'
-import ImageGrid from './Components/ImageGrid.js'
-import Team from './Components/Team.js'
-import Services from './Components/Services.js'
 import Footer from './Components/Footer.js'
-import Testimonials from './Components/Testemonials.js'
-import Contact from './Components/Contact.js'
-// import { useParams } from 'react-router-dom'
+import Home from './pages/Home.js'
 
 const Main = () => {
   const [aboutY, setAboutY] = useState()
@@ -72,14 +64,7 @@ const Main = () => {
       <div className="Main">
         <div className="mainWrapper">
           <Header aboutY={aboutY} projectY={projectY} teamY={teamY} servicesY={servicesY} testemonialsY={testemonialsY} contactY={contactY}/>
-          <Gallery />
-          <About getPosition={getAboutPosition} />
-          <CardBrace />
-          <ImageGrid getPosition={getProjectPosition} />
-          <Team getPosition={getTeamPosition}/>
-          <Services getPosition={getServicesPosition} />
-          <Testimonials getPosition={getTestemonialsPosition}/>
-          <Contact getPosition={getContactPosition}/>
+          <Home getAboutPosition={getAboutPosition} getProjectPosition={getProjectPosition} getTeamPosition={getTeamPosition} getServicesPosition={getServicesPosition} getTestemonialsPosition={getTestemonialsPosition} getContactPosition={getContactPosition}/>
         </div>
         <Footer />
       </div>
