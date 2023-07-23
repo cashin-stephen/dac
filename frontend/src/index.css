@@ -504,6 +504,12 @@ p {
   height: 50px;
   transition-duration: 1s;
   overflow: hidden;
+  text-decoration: none;
+}
+
+.projectLink {
+  text-decoration: none;
+  padding-right: 50px;
 }
 
 .panelText {
@@ -511,15 +517,6 @@ p {
   white-space: nowrap;
   margin-left: 10px;
   overflow: hidden;
-}
-.panelArrow {
-  border: 2px solid rgb(255,255,255,0.6);
-  color: #f5f5ff;
-  background-color: transparent;
-  margin-left: 15px;
-  margin-right: 15px;
-  font-size: 20px;
-  cursor: pointer;
 }
 
 .panel:hover {

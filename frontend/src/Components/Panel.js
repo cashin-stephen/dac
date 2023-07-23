@@ -1,12 +1,9 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
-const Panel = ({ color }) => {
+const Panel = ({ color, projectData }) => {
   const [width, setWidth] = useState('0px')
-
-  const linkPress = () => {
-    console.log(color + ' panel pressed, fill out later')
-  }
 
   return (
 
@@ -14,9 +11,11 @@ const Panel = ({ color }) => {
         onMouseEnter={() => setWidth('200px')}
         onMouseLeave={() => setWidth('0px')}>
         <div className="panelBanner" style={{ width }}>
-            <button className="panelBanner" onClick={linkPress}>
+            <div className="panelBanner" >
+              <Link className='projectLink' to={'projects/' + projectData.id}>
                 <h5 className = "panelText">VIEW PROJECT</h5>
-            </button>
+              </Link>
+            </div>
         </div>
     </div>
 
@@ -24,7 +23,8 @@ const Panel = ({ color }) => {
 }
 
 Panel.propTypes = {
-  color: PropTypes.string.isRequired
+  color: PropTypes.string.isRequired,
+  projectData: PropTypes.object.isRequired
 }
 
 export default Panel
