@@ -1,22 +1,21 @@
 import Header from './../Components/Header'
 import Footer from './../Components/Footer'
+import Sidebar from './../Components/Sidebar'
 import React from 'react'
 
 const Project = () => {
   return (
         <>
-            <Header />
-            <div className='projectPage'>
-                <div className='projectSidebar'>
-                    <div className='sideBarContent'>
-                        <h3>Projects</h3>
-                        <div className='ProjectList'>
-                            <p>hi</p>
-                        </div>
+            <div className="Main">
+                <div className="mainWrapper">
+                    <Header />
+                    <div className='projectPage'>
+                        <Sidebar />
+                        <div style={{ backgroundColor: 'red', height: '1000px', width: '500px' }} />
                     </div>
                 </div>
+                <Footer/>
             </div>
-            <Footer/>
         </>
   )
 }
