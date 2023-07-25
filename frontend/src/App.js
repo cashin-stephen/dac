@@ -2,6 +2,12 @@ import React, { useEffect, useState } from 'react'
 import Header from './Components/Header.js'
 import Footer from './Components/Footer.js'
 import Home from './pages/Home.js'
+import { getProjects } from './data/data.js'
+
+export async function loader ({ params }) {
+  const projects = await getProjects(params.projectId)
+  return { projects }
+}
 
 const Main = () => {
   const [aboutY, setAboutY] = useState()

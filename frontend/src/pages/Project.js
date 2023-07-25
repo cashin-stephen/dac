@@ -1,9 +1,16 @@
 import Header from './../Components/Header'
 import Footer from './../Components/Footer'
 import Sidebar from './../Components/Sidebar'
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useLoaderData } from 'react-router-dom'
 
 const Project = () => {
+  const { projects } = useLoaderData()
+
+  useEffect(() => {
+    console.log(projects)
+  }, [])
+
   return (
         <>
             <div className="Main">
@@ -11,7 +18,7 @@ const Project = () => {
                     <Header />
                     <div className='projectPage'>
                         <Sidebar />
-                        <div style={{ backgroundColor: 'red', height: '1000px', width: '500px' }} />
+                        <h3 className='projectTitle'>{projects.name}</h3>
                     </div>
                 </div>
                 <Footer/>

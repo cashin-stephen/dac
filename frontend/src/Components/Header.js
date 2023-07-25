@@ -1,9 +1,11 @@
 import logo from '.././images/DAC_TEXT_GIRDLE.png'
 import React, { useCallback, useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
-import { useNavigate, useLocation } from 'react-router-dom'
+import { useNavigate, useLocation, Link } from 'react-router-dom'
 
 // consider refactoring...
+// Some functions responsible for dynamic sizings are reliant on element ids
+// Thus timeouts are used to ensure they load before the functions are called
 
 const Header = ({ aboutY, projectY, teamY, servicesY, testemonialsY, contactY }) => {
   const [logoHeight, setLogoHeight] = useState(100)
@@ -49,7 +51,7 @@ const Header = ({ aboutY, projectY, teamY, servicesY, testemonialsY, contactY })
   }, [evaluateLinks])
 
   useEffect(() => {
-    evaluateLinks()
+    setTimeout(() => evaluateLinks(), 200)
   }, [])
 
   useEffect(() => {
@@ -60,7 +62,7 @@ const Header = ({ aboutY, projectY, teamY, servicesY, testemonialsY, contactY })
   const navLinks =
     <div className="localLinks" style={{ marginTop: linkHeight }}>
         {linkWidth > 190 ? <button className="localLinkButton" onClick={() => movePage(aboutY, 'about')}>About Us</button> : null }
-        {linkWidth > 290 ? <button className="localLinkButton" onClick={() => movePage(projectY, 'project')}>Projects</button> : null }
+        {linkWidth > 290 ? <Link className='localLinkButton'to={'/projects/0'}>Projects</Link> : null }
         {linkWidth > 420 ? <button className="localLinkButton" onClick={() => movePage(teamY, 'team')}>Our Team</button> : null }
         {linkWidth > 550 ? <button className="localLinkButton" onClick={() => movePage(servicesY, 'services')}>Our Services</button> : null }
         {linkWidth > 680 ? <button className="localLinkButton" onClick={() => movePage(testemonialsY, 'testemonials')}>Testemonials</button> : null }
@@ -69,12 +71,12 @@ const Header = ({ aboutY, projectY, teamY, servicesY, testemonialsY, contactY })
           ? <div className='moreDropdown'>
             <button className="localLinkButton">More ▽</button>
             <div className='dropdownLinks'>
-            {linkWidth < 190 ? <button onClick={() => movePage(aboutY, 'about')}>About Us</button> : null }
-            {linkWidth < 290 ? <button onClick={() => movePage(projectY, 'project')}>Projects</button> : null }
-            {linkWidth < 420 ? <button onClick={() => movePage(teamY, 'team')}>Our Team</button> : null }
-            {linkWidth < 550 ? <button onClick={() => movePage(servicesY, 'services')}>Our Services</button> : null }
-            {linkWidth < 680 ? <button onClick={() => movePage(testemonialsY, 'testemonials')}>Testemonials</button> : null }
-            {linkWidth < 810 ? <button onClick={() => movePage(contactY, 'contact')}>Contact Us</button> : null }
+            {linkWidth < 190 ? <button className="dropdownItems" onClick={() => movePage(aboutY, 'about')}>About Us</button> : null }
+            {linkWidth < 290 ? <Link className="dropdownItems" to={'/projects/0'}><p>Projects</p></Link> : null }
+            {linkWidth < 420 ? <button className="dropdownItems" onClick={() => movePage(teamY, 'team')}>Projects</button> : null }
+            {linkWidth < 550 ? <button className="dropdownItems" onClick={() => movePage(servicesY, 'services')}>Our Services</button> : null }
+            {linkWidth < 680 ? <button className="dropdownItems" onClick={() => movePage(testemonialsY, 'testemonials')}>Testemonials</button> : null }
+            {linkWidth < 810 ? <button className="dropdownItems" onClick={() => movePage(contactY, 'contact')}>Contact Us</button> : null }
           </div>
         </div>
           : null
@@ -83,9 +85,9 @@ const Header = ({ aboutY, projectY, teamY, servicesY, testemonialsY, contactY })
 
   return (
         <header className = "header">
-            <a href={'/'}>
+            <Link to={'/'}>
             <img className = "logo" src={logo} style={{ height: logoHeight }} alt="DAC & Co. ltd Building Contractors"/>
-            </a>
+            </Link>
             <div className="info">
                 <div className="headerContact">
                     <div className="headerEmail">

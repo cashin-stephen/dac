@@ -1,6 +1,6 @@
 import React from 'react'
 import './index.css'
-import Main from './App'
+import Main, { loader as rootLoader } from './App'
 import Project from './pages/Project'
 import ReactDOM from 'react-dom/client'
 import {
@@ -20,7 +20,8 @@ const router = createBrowserRouter([
   {
     path: 'projects/:projectId',
     element: <Project />,
-    errorElement: <ErrorPage/>
+    errorElement: <ErrorPage/>,
+    loader: rootLoader
   }
 
 ])
