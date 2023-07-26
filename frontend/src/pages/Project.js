@@ -18,7 +18,18 @@ const Project = () => {
                     <Header />
                     <div className='projectPage'>
                         <Sidebar />
-                        <h3 className='projectTitle'>{projects.name}</h3>
+                        <div className='titleDiv'>
+                            <div className='projectTitleBox'>
+                                <h4 className='projectTitle'>{projects.name}</h4>
+                            </div>
+                        </div>
+                        <div className='descriptionDiv'>
+                            <p className='description'>
+                                Lots of word to go here, Lots of word to go here, Lots of word to go here, Lots of word to go here, Lots of word to go here, <br/><br/>
+                                Lots of word to go here, Lots of word to go here, Lots of word to go here, Lots of word to go here, Lots of word to go here, Lots of word to go here, Lots of word to go here, Lots of word to go here, Lots of word to go here
+                            </p>
+                        </div>
+
                     </div>
                 </div>
                 <Footer/>

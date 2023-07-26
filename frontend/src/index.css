@@ -38,6 +38,10 @@ h3 {
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 
+h4 {
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
 h5 {
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
@@ -676,7 +680,6 @@ p {
   margin-top: 30px;
   width:45%;
   height: 85%;
-  /* border: 2px solid rgb(255,255,255,0.6); */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -690,12 +693,11 @@ p {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  /* border: 2px solid rgb(255,255,255,0.6); */
   color: rgb(200,200,200);
 }
 
 .sectionLower {
-  /* border: 2px solid rgb(255,255,255,0.6); */
+
   width:50%;
   height: 100%;
 }
@@ -704,13 +706,13 @@ p {
   width:90%;
   display: flex;
   align-items: flex-start;
-  /* border: 2px solid rgb(255,255,255,0.6); */
+
 }
 
 .upperContact {
   display:flex;
   width: 90%;
-  /* border: 2px solid rgb(255,255,255,0.6); */
+
   color: rgb(200,200,200);
 }
 
@@ -724,7 +726,7 @@ p {
   width:90%;
   display: flex;
   align-items: center;
-  /* border: 2px solid rgb(255,255,255,0.6); */
+
 }
 
 .contactText2 {
@@ -747,7 +749,6 @@ p {
   flex-direction: row;
   width:90%;
   height:82%;
-  /* border: 2px solid rgb(255,255,255,0.6); */
   align-items: flex-start;
   color: rgb(200,200,200);
 }
@@ -757,7 +758,6 @@ p {
   width: 100%;
   height: 100px;
   flex-direction: row;
-  /* border: 2px solid rgb(255,255,255,0.6); */
   justify-content: flex-start;
   gap:10%;
 }
@@ -778,7 +778,6 @@ p {
   flex-direction: column;
   justify-content: center;
   width: 50%;
-  /* border: 2px solid rgb(255,255,255,0.6); */
 }
 
 input[type=text] {
@@ -900,10 +899,42 @@ textarea:focus {
   padding-bottom: 40px
 }
 
+
 .projectTitle {
   color: black;
-  margin-top: 200px;
+  margin-bottom: 7px;
 }
+
+.titleDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  width:100%;
+  margin-top: 130px;
+  border-bottom: 1px solid rgb(0,0,255,0.6);
+}
+
+.spacerDiv {
+  max-width: 220px;
+  width:25%;
+}
+
+.projectTitleBox {
+  display: flex;
+  width: 75%;
+  justify-content: left;
+  margin-left: min(25%, 220px);
+  padding-left: 10px;
+}
+
+.descriptionDiv {
+  margin-left: min(25%, 220px);
+  border: 1px solid rgb(0,255,255,0.6);
+  width: 30%;
+  padding: 10px;
+  margin-top: 50px;
+}
+
 
 @keyframes colourChange{
   0% {background: red;}
