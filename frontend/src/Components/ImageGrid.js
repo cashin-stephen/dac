@@ -1,7 +1,6 @@
 import Panel from './Panel'
 import React, { useRef, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import data from '../data/projects.json'
 
 const ImageGrid = ({ getPosition }) => {
   const myRef = useRef()
@@ -17,12 +16,12 @@ const ImageGrid = ({ getPosition }) => {
   return (
 
         <div className="grid" ref={myRef}>
-            <Panel color={'red'} projectData={data.Project0} />
-            <Panel color={'blue'} projectData={data.Project1} />
-            <Panel color={'purple'} projectData={data.Project2} />
-            <Panel color={'green'} projectData={data.Project3} />
-            <Panel color={'orange'} projectData={data.Project4} />
-            <Panel color={'brown'} projectData={data.Project5} />
+            <Panel color={'red'} id={0} />
+            <Panel color={'blue'} id={1} />
+            <Panel color={'purple'} id={2} />
+            <Panel color={'green'} id={3} />
+            <Panel color={'orange'} id={4} />
+            <Panel color={'brown'} id={5} />
         </div>
   )
 }

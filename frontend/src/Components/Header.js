@@ -10,14 +10,14 @@ import { useNavigate, useLocation, Link } from 'react-router-dom'
 const Header = ({ aboutY, projectY, teamY, servicesY, testemonialsY, contactY }) => {
   const [logoHeight, setLogoHeight] = useState(100)
   const [linkHeight, setLinkHeight] = useState(68)
-  const [linkWidth, setlinksWidth] = useState(0)
+  const [linkWidth, setlinksWidth] = useState(1000)
   const navigate = useNavigate()
   const location = useLocation()
 
   const headerOffset = -25
 
   const movePage = (offset, section) => {
-    if (location.pathname !== '/') {
+    if (section !== 'contact' && location.pathname !== '/') {
       navigate({
         pathname: '/',
         search: 'section=' + section
@@ -51,7 +51,7 @@ const Header = ({ aboutY, projectY, teamY, servicesY, testemonialsY, contactY })
   }, [evaluateLinks])
 
   useEffect(() => {
-    setTimeout(() => evaluateLinks(), 200)
+    evaluateLinks()
   }, [])
 
   useEffect(() => {
@@ -62,7 +62,7 @@ const Header = ({ aboutY, projectY, teamY, servicesY, testemonialsY, contactY })
   const navLinks =
     <div className="localLinks" style={{ marginTop: linkHeight }}>
         {linkWidth > 190 ? <button className="localLinkButton" onClick={() => movePage(aboutY, 'about')}>About Us</button> : null }
-        {linkWidth > 290 ? <Link className='localLinkButton'to={'/projects/0'}>Projects</Link> : null }
+        {linkWidth > 290 ? <Link preventScrollReset={false} className='localLinkButton'to={'/projects/0'}>Projects</Link> : null }
         {linkWidth > 420 ? <button className="localLinkButton" onClick={() => movePage(teamY, 'team')}>Our Team</button> : null }
         {linkWidth > 550 ? <button className="localLinkButton" onClick={() => movePage(servicesY, 'services')}>Our Services</button> : null }
         {linkWidth > 680 ? <button className="localLinkButton" onClick={() => movePage(testemonialsY, 'testemonials')}>Testemonials</button> : null }
@@ -73,7 +73,7 @@ const Header = ({ aboutY, projectY, teamY, servicesY, testemonialsY, contactY })
             <div className='dropdownLinks'>
             {linkWidth < 190 ? <button className="dropdownItems" onClick={() => movePage(aboutY, 'about')}>About Us</button> : null }
             {linkWidth < 290 ? <Link className="dropdownItems" to={'/projects/0'}><p>Projects</p></Link> : null }
-            {linkWidth < 420 ? <button className="dropdownItems" onClick={() => movePage(teamY, 'team')}>Projects</button> : null }
+            {linkWidth < 420 ? <button className="dropdownItems" onClick={() => movePage(teamY, 'team')}>Our Team</button> : null }
             {linkWidth < 550 ? <button className="dropdownItems" onClick={() => movePage(servicesY, 'services')}>Our Services</button> : null }
             {linkWidth < 680 ? <button className="dropdownItems" onClick={() => movePage(testemonialsY, 'testemonials')}>Testemonials</button> : null }
             {linkWidth < 810 ? <button className="dropdownItems" onClick={() => movePage(contactY, 'contact')}>Contact Us</button> : null }

@@ -303,16 +303,13 @@ p {
 
 .gallery {
   margin:auto;
-  width: 101.2%;
   height: auto;
   background: linear-gradient(to right, lightblue 0% 20%, orange 20% 40%, yellow 40% 60%, blue 60% 80%, purple 80% 100%);
   background-size: 500%, 100%;
-  aspect-ratio: 245/72;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  margin-top: 140px;
   margin-left: -0.6%;
   box-shadow: -3px 3px 3px #888888;
 }
@@ -911,7 +908,7 @@ textarea:focus {
   justify-content: left;
   width:100%;
   margin-top: 130px;
-  border-bottom: 1px solid rgb(0,0,255,0.6);
+  border-bottom: 2px solid gray;
 }
 
 .spacerDiv {
@@ -927,14 +924,36 @@ textarea:focus {
   padding-left: 10px;
 }
 
-.descriptionDiv {
+.projectContent {
+  display: flex;
+  flex-wrap: wrap;
   margin-left: min(25%, 220px);
-  border: 1px solid rgb(0,255,255,0.6);
-  width: 30%;
-  padding: 10px;
-  margin-top: 50px;
+  justify-content: center;
 }
 
+.descriptionDiv {
+  flex: 1 1 0;
+  min-width: 200px;
+  padding: 10px;
+  margin-top: 50px;
+  margin: 20px;
+  border: 1px solid rgb(0,255,255,0.6);
+}
+
+
+.projectImages {
+  display: flex;
+  flex-direction: column;
+  flex: 0 1 600px;
+  margin: 20px;
+  gap: 20px;
+}
+
+.mainImage {
+  width: 100%;
+  height: 350px;
+  background-color: red;
+}
 
 @keyframes colourChange{
   0% {background: red;}

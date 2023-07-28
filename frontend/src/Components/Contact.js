@@ -2,7 +2,7 @@ import logoInverted from '../images/DAC_TEXT_GIRDLE_INVERTED.png'
 import React, { useRef, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
-const Contact = ({ getPosition }) => {
+const Contact = ({ getPosition, marginLeft, width }) => {
   const myRef = useRef()
 
   useEffect(() => {
@@ -14,7 +14,7 @@ const Contact = ({ getPosition }) => {
   }, [getPosition])
 
   return (
-        <div className="contact" ref={myRef}>
+        <div className="contact" ref={myRef} style={{ marginLeft, width }}>
             <div className="contactInfo">
                 <div className="upperContact">
                     <div className="logoSection">
@@ -73,7 +73,9 @@ const Contact = ({ getPosition }) => {
 }
 
 Contact.propTypes = {
-  getPosition: PropTypes.func.isRequired
+  getPosition: PropTypes.func.isRequired,
+  marginLeft: PropTypes.string.isRequired,
+  width: PropTypes.string.isRequired
 }
 
 export default Contact

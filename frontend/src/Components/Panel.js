@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
-const Panel = ({ color, projectData }) => {
+const Panel = ({ color, id }) => {
   const [width, setWidth] = useState('0px')
 
   return (
@@ -12,7 +12,7 @@ const Panel = ({ color, projectData }) => {
         onMouseLeave={() => setWidth('0px')}>
         <div className="panelBanner" style={{ width }}>
             <div className="panelBanner" >
-              <Link className='projectLink' to={'projects/' + projectData.id}>
+              <Link className='projectLink' to={'projects/' + id}>
                 <h5 className = "panelText">VIEW PROJECT</h5>
               </Link>
             </div>
@@ -24,7 +24,7 @@ const Panel = ({ color, projectData }) => {
 
 Panel.propTypes = {
   color: PropTypes.string.isRequired,
-  projectData: PropTypes.object.isRequired
+  id: PropTypes.number.isRequired
 }
 
 export default Panel

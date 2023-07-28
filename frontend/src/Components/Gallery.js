@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react'
 import RadioBrace from './Radio'
+import PropTypes from 'prop-types'
 
-const Gallery = () => {
+const Gallery = ({ marginTop, aspectRatio, width }) => {
   const [messageIndex, setMessageIndex] = useState(0)
   const [imgIndex, setImgIndex] = useState(0)
   const [messageList] = useState(['Bespoke Building Solutions', 'Other Things', 'A third Thing', 'Four', 'Five'])
@@ -57,7 +58,7 @@ const Gallery = () => {
   }, [])
 
   return (
-        <div className="gallery" style={{ backgroundPosition: imgIndex * 25 + '%', transition }}>
+        <div className="gallery" style={{ width, aspectRatio, marginTop, backgroundPosition: imgIndex * 25 + '%', transition }}>
             <div />
             <div className="galleryControl">
                 <button className='galleryButton white back' onClick={leftButtonPress}>{'<'}</button>
@@ -67,6 +68,12 @@ const Gallery = () => {
             <RadioBrace index={messageIndex} num={messageList.length}/>
         </div>
   )
+}
+
+Gallery.propTypes = {
+  marginTop: PropTypes.string.isRequired,
+  aspectRatio: PropTypes.string.isRequired,
+  width: PropTypes.string.isRequired
 }
 
 export default Gallery
