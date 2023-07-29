@@ -183,19 +183,28 @@ p {
   top: 0;
   box-shadow: -3px 3px 3px #888888;
   z-index: 3;
+  text-align: center;
 }
 
 .logo {
-  width: auto;
-  padding-top: 15px;
-  padding-bottom: 10px;
-  padding-right: 20px;
-  padding-left: 20px;
+  height: auto;
+  border-style: solid;
+  border-color: gray;
+  width: 75%;
+  border: none;
+  min-width: 100px;
+  padding:5px;
+  display: block; /* This will remove any spacing below the image */
+  margin: 0 auto;
+}
+
+.logoLink {
   border: 0px;
   border-right: 2px;
   border-style: solid;
   border-color: gray;
-  transition: 1s ease-in-out
+  transition: 1s ease-in-out;
+  min-width: 110px;
 }
 
 .info {
@@ -703,7 +712,6 @@ p {
   width:90%;
   display: flex;
   align-items: flex-start;
-
 }
 
 .upperContact {

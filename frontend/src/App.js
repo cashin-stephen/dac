@@ -19,34 +19,48 @@ const Main = () => {
   const [intiialY, setInitialY] = useState(false)
   const headerOffset = -25
 
+  // weird type error on resize, just checking for null for now
+
   const getAboutPosition = (myRef) => {
-    const y = myRef.current.offsetTop
-    setAboutY(y)
+    try {
+      const y = myRef.current.offsetTop
+      setAboutY(y)
+    } catch {}
   }
 
   const getProjectPosition = (myRef) => {
-    const y = myRef.current.offsetTop
-    setProjectY(y)
+    try {
+      const y = myRef.current.offsetTop
+      setProjectY(y)
+    } catch {}
   }
 
   const getTeamPosition = (myRef) => {
-    const y = myRef.current.offsetTop
-    setTeamY(y)
+    try {
+      const y = myRef.current.offsetTop
+      setTeamY(y)
+    } catch {}
   }
 
   const getServicesPosition = (myRef) => {
-    const y = myRef.current.offsetTop
-    setServicesY(y)
+    try {
+      const y = myRef.current.offsetTop
+      setServicesY(y)
+    } catch {}
   }
 
   const getTestemonialsPosition = (myRef) => {
-    const y = myRef.current.offsetTop
-    setTestemonialsY(y)
+    try {
+      const y = myRef.current.offsetTop
+      setTestemonialsY(y)
+    } catch {}
   }
 
   const getContactPosition = (myRef) => {
-    const y = myRef.current.offsetTop
-    setContactY(y)
+    try {
+      const y = myRef.current.offsetTop
+      setContactY(y)
+    } catch {}
   }
 
   // Bad code, revisit if you have integrity

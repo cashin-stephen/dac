@@ -11,14 +11,16 @@ const Project = () => {
   const { projects } = useLoaderData()
 
   const getContactPosition = (myRef) => {
-    const y = myRef.current.offsetTop
-    setContactY(y)
+    try {
+      const y = myRef.current.offsetTop
+      setContactY(y)
+    } catch {}
   }
 
   useEffect(() => {
     console.log(projects)
     window.scrollTo(0, 0)
-  }, [])
+  }, [projects])
 
   return (
         <>

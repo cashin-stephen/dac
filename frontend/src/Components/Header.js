@@ -8,8 +8,8 @@ import { useNavigate, useLocation, Link } from 'react-router-dom'
 // Thus timeouts are used to ensure they load before the functions are called
 
 const Header = ({ aboutY, projectY, teamY, servicesY, testemonialsY, contactY }) => {
-  const [logoHeight, setLogoHeight] = useState(100)
-  const [linkHeight, setLinkHeight] = useState(68)
+  const [logoWidth, setLogoWidth] = useState('min(80%, 300px)')
+  const [linkHeight, setLinkHeight] = useState(48)
   const [linkWidth, setlinksWidth] = useState(1000)
   const navigate = useNavigate()
   const location = useLocation()
@@ -29,11 +29,11 @@ const Header = ({ aboutY, projectY, teamY, servicesY, testemonialsY, contactY })
   const resizeHeader = () => {
     const documentElement = document.documentElement
     if (documentElement.scrollTop < 50) {
-      setLogoHeight(100)
-      setLinkHeight(68)
+      setLogoWidth('min(80%, 300px)')
+      setLinkHeight(48)
     } else {
-      setLogoHeight(65)
-      setLinkHeight(33)
+      setLogoWidth('min(40%, 220px)')
+      setLinkHeight(28)
     }
   }
 
@@ -85,8 +85,9 @@ const Header = ({ aboutY, projectY, teamY, servicesY, testemonialsY, contactY })
 
   return (
         <header className = "header">
-            <Link to={'/'}>
-            <img className = "logo" src={logo} style={{ height: logoHeight }} alt="DAC & Co. ltd Building Contractors"/>
+            <Link className="logoLink" style={{ width: logoWidth }} to={'/'}>
+            <div style={{ display: 'inline-block', textAlign: 'center' }}></div>
+            <img className = "logo" src={logo} alt="DAC & Co. ltd Building Contractors"/>
             </Link>
             <div className="info">
                 <div className="headerContact">
