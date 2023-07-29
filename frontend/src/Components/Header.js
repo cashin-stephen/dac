@@ -7,7 +7,7 @@ import { useNavigate, useLocation, Link } from 'react-router-dom'
 // Some functions responsible for dynamic sizings are reliant on element ids
 // Thus timeouts are used to ensure they load before the functions are called
 
-const Header = ({ aboutY, projectY, teamY, servicesY, testemonialsY, contactY }) => {
+const Header = ({ aboutY, teamY, servicesY, testemonialsY, contactY }) => {
   const [logoWidth, setLogoWidth] = useState('min(80%, 300px)')
   const [linkHeight, setLinkHeight] = useState(48)
   const [linkWidth, setlinksWidth] = useState(1000)

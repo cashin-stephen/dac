@@ -18,7 +18,6 @@ const Project = () => {
   }
 
   useEffect(() => {
-    console.log(projects)
     window.scrollTo(0, 0)
   }, [projects])
 

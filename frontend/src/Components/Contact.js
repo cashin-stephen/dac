@@ -7,11 +7,11 @@ const Contact = ({ getPosition, marginLeft, width }) => {
 
   useEffect(() => {
     getPosition(myRef)
-  }, [getPosition])
-
-  useEffect(() => {
     window.addEventListener('resize', () => getPosition(myRef))
-  }, [getPosition])
+    return () => {
+      window.removeEventListener('resize', () => getPosition(myRef))
+    }
+  }, [])
 
   return (
         <div className="contact" ref={myRef} style={{ marginLeft, width }}>

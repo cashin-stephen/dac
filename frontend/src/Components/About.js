@@ -6,11 +6,11 @@ const About = ({ getPosition }) => {
 
   useEffect(() => {
     getPosition(myRef)
-  }, [getPosition])
-
-  useEffect(() => {
     window.addEventListener('resize', () => getPosition(myRef))
-  }, [getPosition])
+    return () => {
+      window.removeEventListener('resize', () => getPosition(myRef))
+    }
+  }, [])
 
   return (
         <div className="about" ref={myRef}>

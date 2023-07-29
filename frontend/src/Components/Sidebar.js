@@ -17,10 +17,11 @@ const Sidebar = () => {
 
   useEffect(() => {
     window.addEventListener('resize', () => setLocalHeight(window.innerHeight - headerOffset))
-  }, [])
-
-  useEffect(() => {
     window.addEventListener('scroll', () => adjusTextOffset())
+    return () => {
+      window.removeEventListener('resize', () => setLocalHeight(window.innerHeight - headerOffset))
+      window.removeEventListener('scroll', () => adjusTextOffset())
+    }
   }, [])
 
   return (

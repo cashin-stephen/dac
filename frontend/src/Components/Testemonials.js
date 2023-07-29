@@ -109,9 +109,6 @@ const Testimonials = ({ getPosition }) => {
 
   useEffect(() => {
     getPosition(myRef)
-  }, [getPosition])
-
-  useEffect(() => {
     window.addEventListener('resize', () => getPosition(myRef))
     // monitor for performance IMPORTANT
     getLinesFromTextNode()

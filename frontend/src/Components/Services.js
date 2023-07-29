@@ -6,10 +6,10 @@ const Services = ({ getPosition }) => {
 
   useEffect(() => {
     getPosition(myRef)
-  }, [getPosition])
-
-  useEffect(() => {
     window.addEventListener('resize', () => getPosition(myRef))
+    return () => {
+      window.removeEventListener('resize', () => getPosition(myRef))
+    }
   }, [getPosition])
 
   return (
