@@ -9,16 +9,6 @@ body {
   max-height: 100%;
 }
 
-footer {
-  position: fixed;
-  color: gray;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 16px;
-  text-align: right;
-}
-
 .Main {
   text-align: center;
   justify-content: center;
@@ -34,19 +24,7 @@ h1 {
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-h3 {
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
-}
-
-h4 {
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
-}
-
-h5 {
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
-}
-
-p {
+h3, h4, h5, p {
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 
@@ -679,7 +657,6 @@ p {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  padding-bottom:50px;
 }
 
 .contactInfo {
@@ -761,7 +738,7 @@ p {
 .contactDetails {
   display: flex;
   width: 100%;
-  height: 100px;
+  height: 100%;
   flex-direction: row;
   justify-content: flex-start;
   gap:10%;
@@ -796,22 +773,27 @@ input[type=text] {
   font-family:monospace;
 }
 
+.captchaDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
 input[type=text]:focus {
   border: 3px solid #6488ea
 }
 
 input[type=submit] {
-  width:50%;
+  width:80px;
   align-self: flex-end;
   background-color: #6488ea;
   border: none;
   color: white;
   padding: 8px 8px;
   text-decoration: none;
-  margin: 4px 2px;
+  margin-bottom: 52px;
   cursor: pointer;
   border-radius: 5px;
-  min-width: 50%
 }
 
 textarea {
@@ -842,7 +824,6 @@ textarea:focus {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 2.5rem;
   z-index: 3;
 }
 

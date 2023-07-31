@@ -52,9 +52,6 @@ const Project = () => {
                         </div>
                     </div>
                 </div>
-                <div className='contactContainer'>
-
-                </div>
                 <Contact getPosition={getContactPosition} marginLeft={'min(25%, 220px)'} width={'calc(100% - min(25%, 220px))'} />
                 <Footer/>
             </div>

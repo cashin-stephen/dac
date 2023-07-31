@@ -1,9 +1,61 @@
 import logoInverted from '../images/DAC_TEXT_GIRDLE_INVERTED.png'
-import React, { useRef, useEffect } from 'react'
+import Axios from 'axios'
+import React, { useRef, useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
+import ReCAPTCHA from 'react-google-recaptcha'
 
 const Contact = ({ getPosition, marginLeft, width }) => {
   const myRef = useRef()
+
+  const [validToken, setValidToken] = useState([])
+  const [captchaError, setcaptchaError] = useState('')
+
+  // Put these in an .env variable
+  const SITE_KEY = '6LcveW0nAAAAAKv7_GdWCqcLWhRDBTDvR1XOIVdS'
+  const SECRET_KEY = '6LcveW0nAAAAAJGNm2R6QXno5E0_HfK5AHuYWmYR'
+
+  const captchaRef = useRef(null)
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    const token = captchaRef.current.getValue()
+    captchaRef.current.reset()
+
+    if (token) {
+      const thisValidtoken = await verifyToken(token)
+      setValidToken(thisValidtoken)
+      setcaptchaError('')
+    } else {
+      setcaptchaError('Please Fill in Captcha')
+      console.log('Please Fill in Captcha')
+    }
+  }
+
+  const verifyToken = async (token) => {
+    try {
+      const response = await Axios.post('http://localhost:8000/verify-token', {
+        reCAPTCHA_TOKEN: token,
+        Secret_Key: SECRET_KEY
+      })
+
+      console.log(response.data)
+
+      return response.data
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(() => {
+    if (validToken.length !== 0) {
+      console.log(validToken)
+      if (validToken.success === true) {
+        console.log('verified')
+      } else {
+        console.log('not verified')
+      }
+    }
+  }, [validToken])
 
   useEffect(() => {
     getPosition(myRef)
@@ -37,7 +89,7 @@ const Contact = ({ getPosition, marginLeft, width }) => {
             </div>
             <div className="contactInfo">
                 <div className="inputSection">
-                    <form className="contactForm">
+                    <form className="contactForm" onSubmit={handleSubmit}>
                         <div className="contactDetails">
                             <div className="nameContact">
                                 <label>
@@ -56,13 +108,12 @@ const Contact = ({ getPosition, marginLeft, width }) => {
                             <p className="formLabel">Message</p>
                             <textarea rows={5} id="messageInput" name="messageInput" placeholder="Your Message..." required></textarea>
                         </label>
-                        <div className="contactDetails">
-                            <div className="nameContact">
-                                <input type="text" id="captchaPlaceHolder" name="nameInput" placeholder="Captcha Here" /><br></br>
+                        <div className="contactDetails" style={{ marginTop: '10px', flexWrap: 'wrap', gap: '10px', justifyContent: 'space-between' }}>
+                            <div className='captchaDiv'>
+                                <ReCAPTCHA className="recaptcha" sitekey={SITE_KEY} ref={captchaRef} />
+                                <p style={{ color: 'red' }}>{captchaError}</p>
                             </div>
-                            <div className="nameContact">
-                                <input type="submit" value="Submit" />
-                            </div>
+                            <input type="submit" value="Submit" />
                         </div>
 
                     </form>
