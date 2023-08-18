@@ -27,7 +27,6 @@ const Contact = ({ getPosition, marginLeft, width }) => {
       setcaptchaError('')
     } else {
       setcaptchaError('Please Fill in Captcha')
-      console.log('Please Fill in Captcha')
     }
   }
 
@@ -37,8 +36,6 @@ const Contact = ({ getPosition, marginLeft, width }) => {
         reCAPTCHA_TOKEN: token,
         Secret_Key: SECRET_KEY
       })
-
-      console.log(response.data)
 
       return response.data
     } catch (error) {
