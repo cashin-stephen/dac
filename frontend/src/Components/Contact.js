@@ -12,7 +12,7 @@ const Contact = ({ getPosition, marginLeft, width }) => {
 
   // Put these in an .env variable
   const SITE_KEY = '6LcveW0nAAAAAKv7_GdWCqcLWhRDBTDvR1XOIVdS'
-  const SECRET_KEY = '6LcveW0nAAAAAJGNm2R6QXno5E0_HfK5AHuYWmYR'
+  const SECRET_KEY = process.env.SECRET_KEY
 
   const captchaRef = useRef(null)
 
@@ -20,7 +20,6 @@ const Contact = ({ getPosition, marginLeft, width }) => {
     e.preventDefault()
     const token = captchaRef.current.getValue()
     captchaRef.current.reset()
-    // console.log(data)
 
     if (token) {
       const thisValidtoken = await verifyToken(token)
