@@ -20,11 +20,14 @@ const Contact = ({ getPosition, marginLeft, width }) => {
     e.preventDefault()
     const token = captchaRef.current.getValue()
     captchaRef.current.reset()
+    // console.log(data)
 
     if (token) {
       const thisValidtoken = await verifyToken(token)
       setValidToken(thisValidtoken)
       setcaptchaError('')
+      sendEmail()
+      setcaptchaError('Message successfully sent')
     } else {
       setcaptchaError('Please Fill in Captcha')
     }
@@ -37,6 +40,26 @@ const Contact = ({ getPosition, marginLeft, width }) => {
         Secret_Key: SECRET_KEY
       })
 
+      return response.data
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const sendEmail = async () => {
+    const name = document.getElementById('nameInput').value
+    const email = document.getElementById('emailInput').value
+    const msg = document.getElementById('messageInput').value
+    const message = {
+      to: 'stephencashin2000@gmail.com',
+      from: 'cashinstephen@gmail.com',
+      subject: 'Dac Website Enquiry',
+      text: 'name: ' + name + '\n' + 'email ' + email + '\n' + 'msg: ' + msg
+    }
+    try {
+      const response = await Axios.post('http://localhost:8000/send-email', {
+        message
+      })
       return response.data
     } catch (error) {
       console.log(error)
@@ -61,6 +84,11 @@ const Contact = ({ getPosition, marginLeft, width }) => {
       window.removeEventListener('resize', () => getPosition(myRef))
     }
   }, [])
+
+  const formResponse =
+  <>
+    {captchaError.includes('sent') ? <p style={{ color: 'green' }}>{captchaError}</p> : <p style={{ color: 'red' }}>{captchaError}</p>}
+  </>
 
   return (
         <div className="contact" ref={myRef} style={{ marginLeft, width }}>
@@ -108,7 +136,7 @@ const Contact = ({ getPosition, marginLeft, width }) => {
                         <div className="contactDetails" style={{ marginTop: '10px', flexWrap: 'wrap', gap: '10px', justifyContent: 'space-between' }}>
                             <div className='captchaDiv'>
                                 <ReCAPTCHA className="recaptcha" sitekey={SITE_KEY} ref={captchaRef} />
-                                <p style={{ color: 'red' }}>{captchaError}</p>
+                                {formResponse}
                             </div>
                             <input type="submit" value="Submit" />
                         </div>
