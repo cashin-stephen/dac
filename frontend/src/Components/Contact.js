@@ -9,26 +9,59 @@ const Contact = ({ getPosition, marginLeft, width }) => {
 
   const [validToken, setValidToken] = useState([])
   const [captchaError, setcaptchaError] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   // Put these in an .env variable
-  const SITE_KEY = '6LcveW0nAAAAAKv7_GdWCqcLWhRDBTDvR1XOIVdS'
-  const SECRET_KEY = process.env.SECRET_KEY
+  const SITE_KEY = process.env.REACT_APP_reCAPTCHA_SITE_KEY
+  const SECRET_KEY = process.env.REACT_APP_reCAPTCHA_SECRET_KEY
 
   const captchaRef = useRef(null)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const token = captchaRef.current.getValue()
-    captchaRef.current.reset()
 
-    if (token) {
-      const thisValidtoken = await verifyToken(token)
-      setValidToken(thisValidtoken)
-      setcaptchaError('')
-      sendEmail()
-      setcaptchaError('Message successfully sent')
-    } else {
-      setcaptchaError('Please Fill in Captcha')
+    if (isSubmitting) return
+
+    const token = captchaRef.current.getValue()
+
+    if (!token) {
+      setcaptchaError('Please complete the Captcha')
+      return
+    }
+
+    setIsSubmitting(true)
+    setcaptchaError('')
+
+    try {
+      // Verify captcha first
+      const verificationResult = await verifyToken(token)
+      setValidToken(verificationResult)
+
+      if (verificationResult && verificationResult.success) {
+        // Only send email if captcha is verified
+        const emailResult = await sendEmail()
+
+        if (emailResult && emailResult.success) {
+          setcaptchaError('Message successfully sent!')
+          // Clear form
+          document.getElementById('nameInput').value = ''
+          document.getElementById('emailInput').value = ''
+          document.getElementById('messageInput').value = ''
+          captchaRef.current.reset()
+        } else {
+          setcaptchaError('Failed to send email. Please try again.')
+          captchaRef.current.reset()
+        }
+      } else {
+        setcaptchaError('Captcha verification failed. Please try again.')
+        captchaRef.current.reset()
+      }
+    } catch (error) {
+      console.error('Form submission error:', error)
+      setcaptchaError('An error occurred. Please try again.')
+      captchaRef.current.reset()
+    } finally {
+      setIsSubmitting(false)
     }
   }
 
@@ -41,7 +74,8 @@ const Contact = ({ getPosition, marginLeft, width }) => {
 
       return response.data
     } catch (error) {
-      console.log(error)
+      console.error('Captcha verification error:', error)
+      return { success: false, message: 'Network error during verification' }
     }
   }
 
@@ -53,7 +87,7 @@ const Contact = ({ getPosition, marginLeft, width }) => {
       to: 'stephencashin2000@gmail.com',
       from: 'cashinstephen@gmail.com',
       subject: 'Dac Website Enquiry',
-      text: 'name: ' + name + '\n' + 'email ' + email + '\n' + 'msg: ' + msg
+      text: 'name: ' + name + '\n' + 'email: ' + email + '\n' + 'msg: ' + msg
     }
     try {
       const response = await Axios.post('http://localhost:8000/send-email', {
@@ -61,7 +95,8 @@ const Contact = ({ getPosition, marginLeft, width }) => {
       })
       return response.data
     } catch (error) {
-      console.log(error)
+      console.error('Email sending error:', error)
+      return { success: false, message: 'Network error during email send' }
     }
   }
 
@@ -90,24 +125,20 @@ const Contact = ({ getPosition, marginLeft, width }) => {
   </>
 
   return (
-        <div className="contact" ref={myRef} style={{ marginLeft, width }}>
+        <div className="contact" ref={myRef} style={{ marginLeft, width, marginTop: '0px' }}>
             <div className="contactInfo">
                 <div className="upperContact">
                     <div className="logoSection">
-                        <img className = "logoInverted" src={logoInverted} alt="DAC & Co. ltd Building Contractors"/>
+                        <img className = "logoInverted" src={logoInverted} alt="DAC & Co. ltd Building Contractors" style={{ width: '150px', height: 'auto' }}/>
                     </div>
                     <div className="contactTitleSection">
-                        <p className="contactText"> <b>Contact Us</b></p>
+                        <p className="contactText" style={{ fontSize: '28px', fontWeight: 'bold', margin: '0' }}> Contact Us</p>
                     </div>
                 </div>
                 <div className="textSection">
                     <div className="sectionLower">
                         <p className="contactText2">Build, Renovate, Extend</p>
                         <p className="contactText"> <b>Address:</b><br></br>Drumcondra, Dublin 9</p>
-                    </div>
-                    <div className="sectionLower">
-                        <p className="contactText"> <b>Phone:</b><br></br> 086 2603225</p>
-                        <p className="contactText"><b>Email:</b><br></br>email@email.com</p>
                     </div>
                 </div>
             </div>
@@ -137,7 +168,7 @@ const Contact = ({ getPosition, marginLeft, width }) => {
                                 <ReCAPTCHA className="recaptcha" sitekey={SITE_KEY} ref={captchaRef} />
                                 {formResponse}
                             </div>
-                            <input type="submit" value="Submit" />
+                            <input type="submit" value={isSubmitting ? 'Sending...' : 'Submit'} disabled={isSubmitting} />
                         </div>
 
                     </form>

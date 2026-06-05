@@ -13,7 +13,17 @@ const Services = ({ getPosition }) => {
   }, [getPosition])
 
   return (
-        <div className="services" ref={myRef}>
+        <div className="services" ref={myRef} style={{
+          backgroundColor: '#d3d3d3',
+          width: '100vw',
+          marginLeft: 'calc(-50vw + 50%)',
+          paddingLeft: 'calc(50vw - 50%)',
+          paddingRight: 'calc(50vw - 50%)',
+          paddingTop: '40px',
+          paddingBottom: '0px',
+          marginBottom: '0px',
+          color: '#2c3e50'
+        }}>
             <h1 className="serviceTitle">Our Services</h1>
             <div className="serviceBrace">
                 <p className="serviceText">
@@ -36,7 +46,7 @@ const Services = ({ getPosition }) => {
                     + Contractors All risk insurance
                     <br/><br/>
 
-                    What We Do <br/><br/>
+                    <strong>What We Do</strong> <br/><br/>
 
                     + Can design and build your Project <br/>
                     + Can build your project based on architects drawings and details
@@ -45,7 +55,7 @@ const Services = ({ getPosition }) => {
                     Our Company provides two services which complement each other
                     <br/><br/>
 
-                    1. DAC design
+                    <strong>1. DAC design</strong>
                     <br/> <br/>
 
                     + DAC Design will transform your ideas for renovation, Extension
@@ -57,7 +67,7 @@ const Services = ({ getPosition }) => {
                     + We will then cost the project based on planning drawings <br/>
                     <br/>
 
-                    2. DAC constructions
+                    <strong>2. DAC constructions</strong>
                     <br/> <br/>
 
                     + DAC employs a full team from foremen to labour. <br/>

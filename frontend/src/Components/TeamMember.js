@@ -1,21 +1,38 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
-const TeamMember = () => {
+const TeamMember = ({ name, image, description, secondaryDescription, alt, imagePosition = 'center' }) => {
   return (
         <div className="teamItem">
-            <div className="teamImg"/>
-            <p className="teamText">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Suspendisse ultricies, felis et pulvinar varius,
-            erat mauris tempus ipsum, a rutrum risus nisl quis tortor.
-            Duis pharetra, metus ac posuere sodales, purus tortor ultrices justo,
-            ut pellentesque nisi elit a ex. <br/><br/> Pellentesque tempor odio metus,
-            a mattis tortor commodo sit amet. Ut dignissim lacus et sapien
-            accumsan pulvinar. Donec et ipsum volutpat, fermentum massa id,
-            luctus arcu.
-            </p>
+            {image
+              ? (
+                <img src={image} alt={alt} className="teamImg" style={{ objectFit: 'cover', objectPosition: imagePosition }} />
+                )
+              : (
+                <div className="teamImg" />
+                )}
+            <div>
+                <h3>{name}</h3>
+                <p className="teamText">
+                    {description}
+                </p>
+                {secondaryDescription && (
+                    <p className="teamText">
+                        {secondaryDescription}
+                    </p>
+                )}
+            </div>
         </div>
   )
+}
+
+TeamMember.propTypes = {
+  name: PropTypes.string.isRequired,
+  image: PropTypes.string,
+  description: PropTypes.string.isRequired,
+  secondaryDescription: PropTypes.string,
+  alt: PropTypes.string,
+  imagePosition: PropTypes.string
 }
 
 export default TeamMember
