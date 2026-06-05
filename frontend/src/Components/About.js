@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
-const About = ({ getPosition }) => {
+const About = ({ getPosition, marginTop }) => {
   const myRef = useRef()
 
   useEffect(() => {
@@ -13,15 +13,15 @@ const About = ({ getPosition }) => {
   }, [])
 
   return (
-        <div className="about" ref={myRef}>
+        <div className="about" ref={myRef} style={{ marginTop }}>
             <h1 className="title">About Us</h1>
             <p className="aboutText">
-                DAC & Co. LTD is a family buiness owned and managed by Dave and Paul Cashin.
-                Dave Cashin is a structural engineer with 23 years experience in home designing
-                and building while Paul Cashin is a fully qualified electrician also with 24 years
-                experience in coordinating mechanical and electrical services. They have worked
-                together throughout their careers making a very solid team. The company employs a
-                team of 8 full time professionals.
+                DAC & Co. LTD is a family business owned and managed by David Cashin and Paul Cashin.
+                The pair manage and coordinate a team of 5-10 professionals that specialise in
+                quality home construction and improvement. Operating in North Dublin for over 30 years,
+                evidence of their work can be seen throughout the city. David and Paul have worked together
+                throughout their careers, priding themselves on leading a solid, reliable team, that is
+                passionate about the projects work on.
             </p>
             <div className="aboutEndLine"></div>
         </div>
@@ -29,7 +29,8 @@ const About = ({ getPosition }) => {
 }
 
 About.propTypes = {
-  getPosition: PropTypes.func.isRequired
+  getPosition: PropTypes.func.isRequired,
+  marginTop: PropTypes.string
 }
 
 export default About

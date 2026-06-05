@@ -554,27 +554,39 @@ h3, h4, h5, p {
   flex-direction: column;
   width: 90%;
   margin: auto;
-  background-color: black;
+  background-color: #d3d3d3;
   margin-top: 50px;
   margin-bottom: 50px;
 }
 
 .serviceTitle {
-  color:white; 
+  color: #2c3e50;
 }
 
 .serviceBrace {
   display: flex;
   flex-direction: row;
-  color: white;
+  color: #2c3e50;
   justify-content: center;
   gap: 4%;
+  flex-wrap: wrap;
 }
 
 .serviceText {
-  width: 42%;
+  flex: 1 1 400px;
+  min-width: 300px;
+  max-width: 42%;
   text-align: left;
   line-height: 1.5;
+}
+
+@media (max-width: 1000px) {
+  .serviceText {
+    max-width: 100%;
+    flex: 1 1 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 
 .testemonials {

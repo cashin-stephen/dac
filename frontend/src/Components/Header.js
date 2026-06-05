@@ -62,20 +62,16 @@ const Header = ({ aboutY, teamY, servicesY, testemonialsY, contactY }) => {
   const navLinks =
     <div className="localLinks" style={{ marginTop: linkHeight }}>
         {linkWidth > 190 ? <button className="localLinkButton" onClick={() => movePage(aboutY, 'about')}>About Us</button> : null }
-        {linkWidth > 290 ? <Link preventScrollReset={false} className='localLinkButton'to={'/projects/0'}>Projects</Link> : null }
         {linkWidth > 420 ? <button className="localLinkButton" onClick={() => movePage(teamY, 'team')}>Our Team</button> : null }
         {linkWidth > 550 ? <button className="localLinkButton" onClick={() => movePage(servicesY, 'services')}>Our Services</button> : null }
-        {linkWidth > 680 ? <button className="localLinkButton" onClick={() => movePage(testemonialsY, 'testemonials')}>Testemonials</button> : null }
         {linkWidth > 810 ? <button className="localLinkButton" onClick={() => movePage(contactY, 'contact')}>Contact Us</button> : null }
         {linkWidth < 810
           ? <div className='moreDropdown'>
             <button className="localLinkButton">More ▽</button>
             <div className='dropdownLinks'>
             {linkWidth < 190 ? <button className="dropdownItems" onClick={() => movePage(aboutY, 'about')}>About Us</button> : null }
-            {linkWidth < 290 ? <Link className="dropdownItems" to={'/projects/0'}><p>Projects</p></Link> : null }
             {linkWidth < 420 ? <button className="dropdownItems" onClick={() => movePage(teamY, 'team')}>Our Team</button> : null }
             {linkWidth < 550 ? <button className="dropdownItems" onClick={() => movePage(servicesY, 'services')}>Our Services</button> : null }
-            {linkWidth < 680 ? <button className="dropdownItems" onClick={() => movePage(testemonialsY, 'testemonials')}>Testemonials</button> : null }
             {linkWidth < 810 ? <button className="dropdownItems" onClick={() => movePage(contactY, 'contact')}>Contact Us</button> : null }
           </div>
         </div>
@@ -91,12 +87,6 @@ const Header = ({ aboutY, teamY, servicesY, testemonialsY, contactY }) => {
             </Link>
             <div className="info">
                 <div className="headerContact">
-                    <div className="headerEmail">
-                        <h5>086 2603225</h5>
-                    </div>
-                    <div className="headerEmail">
-                        <h5>email@email.com</h5>
-                    </div>
                 </div>
                     {navLinks}
             </div>

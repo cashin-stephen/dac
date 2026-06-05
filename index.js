@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express')
 const axios = require('axios');
 const cors = require('cors');
@@ -6,7 +7,7 @@ const sgMail = require('@sendgrid/mail')
 
 const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 
 app.use(jsonParser);
 app.use(cors());
@@ -35,20 +36,30 @@ app.post("/verify-token", async (req,res) => {
 
 app.post("/send-email", async (req,res) => {
     const { message } = req.body;
-    console.log(message)
+    console.log('Sending email:', message)
+
+    if (!process.env.SENDGRID_API_KEY) {
+        console.error('SENDGRID_API_KEY not set in environment variables');
+        return res.status(500).json({
+            success:false,
+            message: "Email service not configured"
+        })
+    }
+
     try {
         sgMail.setApiKey(process.env.SENDGRID_API_KEY)
-        sgMail.send(message) 
+        await sgMail.send(message)
+        console.log('Email sent successfully');
         return res.status(200).json({
             success:true,
             message: "Email Sent",
-          });  
+          });
     } catch(error) {
-        console.log(error);
+        console.error('Error sending email:', error);
 
         return res.status(500).json({
           success:false,
-          message: "Error verifying token"
+          message: "Error sending email"
         })
     }
 });
