@@ -14,6 +14,7 @@ const Contact = ({ getPosition, marginLeft, width }) => {
   // Put these in an .env variable
   const SITE_KEY = process.env.REACT_APP_reCAPTCHA_SITE_KEY
   const SECRET_KEY = process.env.REACT_APP_reCAPTCHA_SECRET_KEY
+  const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000'
 
   const captchaRef = useRef(null)
 
@@ -67,7 +68,7 @@ const Contact = ({ getPosition, marginLeft, width }) => {
 
   const verifyToken = async (token) => {
     try {
-      const response = await Axios.post('http://localhost:8000/verify-token', {
+      const response = await Axios.post(`${API_URL}/verify-token`, {
         reCAPTCHA_TOKEN: token,
         Secret_Key: SECRET_KEY
       })
@@ -90,7 +91,7 @@ const Contact = ({ getPosition, marginLeft, width }) => {
       text: 'name: ' + name + '\n' + 'email: ' + email + '\n' + 'msg: ' + msg
     }
     try {
-      const response = await Axios.post('http://localhost:8000/send-email', {
+      const response = await Axios.post(`${API_URL}/send-email`, {
         message
       })
       return response.data
