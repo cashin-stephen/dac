@@ -32,8 +32,8 @@ const Team = ({ getPosition }) => {
                     name="David Cashin"
                     image={daveImage}
                     alt="David Cashin"
-                    description="David Cashin is a structural engineer with over 3 decades of experience in home designing and building. He is focused on nailing every detail, and ensuring eachh build feels right."
-                    secondaryDescription="In his free time, David Cashin can be found hiking the hills   and mountains of Ireland."
+                    description="David Cashin is a structural engineer with over 3 decades of experience in home designing and building. He is focused on nailing every detail, and ensuring each build feels right."
+                    secondaryDescription="In his free time, David Cashin can be found hiking the hills and mountains of Ireland."
                 />
                 <TeamMember
                     name="Paul Cashin"

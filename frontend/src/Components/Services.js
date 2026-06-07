@@ -33,10 +33,10 @@ const Services = ({ getPosition }) => {
                     + Extensions <br/> <br/>
 
                     We also have extensive experience in dealing with disabled access
-                    and listed buildings working with many specialist architects and designers
+                    and listed buildings, working with many specialist architects and designers
                     <br/><br/>
 
-                    We are members of The SEI House Energy saving Scheme. <br/>
+                    We are members of The SEI House Energy Saving Scheme. <br/>
                     Our contractor ID number is 10539 <br/><br/>
 
                     + C2 Registered <br/>
@@ -58,7 +58,7 @@ const Services = ({ getPosition }) => {
                     <strong>1. DAC design</strong>
                     <br/> <br/>
 
-                    + DAC Design will transform your ideas for renovation, Extension
+                    + DAC Design will transform your ideas for renovation, extension
                     or conversion into professional drawings <br/>
                     + We provide the expertise to guide you through all possibilities <br/>
                     + We will then prepare planning drawings <br/>
@@ -72,9 +72,9 @@ const Services = ({ getPosition }) => {
 
                     + DAC employs a full team from foremen to labour. <br/>
                     + DAC organises every aspect of the building work. <br/>
-                    The company emplys the same team of contractors for all its projects:
+                    The company employs the same team of contractors for all its projects:
                     plumbers, bricklayers, plasterers, etc. <br/>
-                    + Dave and Paul will advise you regarding choice of suppliers and manufacturers <br/>
+                    + David and Paul will advise you regarding choice of suppliers and manufacturers <br/>
                     + We will arrange regular meetings to ensure efficient progress of
                     work on site <br/>
 

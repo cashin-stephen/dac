@@ -21,7 +21,7 @@ const About = ({ getPosition, marginTop }) => {
                 quality home construction and improvement. Operating in North Dublin for over 30 years,
                 evidence of their work can be seen throughout the city. David and Paul have worked together
                 throughout their careers, priding themselves on leading a solid, reliable team, that is
-                passionate about the projects work on.
+                passionate about the projects they work on.
             </p>
             <div className="aboutEndLine"></div>
         </div>
